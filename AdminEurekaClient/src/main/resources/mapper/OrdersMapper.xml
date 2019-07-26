@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.OrdersMapper">
+
+	<!-- 使用默认mybatis : 二级缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+	<!-- 根据用户名和密码查询用户是否存在 -->
+	
+	
+	
+	<insert id="insertOrder" parameterType="Orders">
+	insert into orders(order_id,to_userName,to_addr,to_tel,order_time,
+			order_status,order_totalmoney,user_id)
+			values(#{order_id},#{to_userName},#{to_addr},#{to_tel},now(),#{order_status},
+			#{order_totalmoney},#{user.user_id})
+	</insert>
+	
+	<insert id="insertDetail" parameterType="Orders" useGeneratedKeys="true" keyProperty="orderdetail_id">
+		insert into orderdetail(goods_count,goods_buyprice,goodsdetail_id,Order_id)
+	values
+	<foreach collection="cartDetail" separator="," item="d">
+		(#{d.goods_count},#{d.goods_money},#{d.goodsDetail.goodsdetail_id},#{order_id})
+	</foreach>
+	</insert>
+	
+	
+	
+	<delete id="deleteOrder" parameterType="String">
+		delete from orders where order_id = #{order_id}
+	</delete>
+	<delete id="deleteDetail" parameterType="Orders">
+		delete from orderdetail where order_id = #{order_id}
+	</delete>
+	
+	
+	
+	
+	<delete id="delMutilOrder" parameterType="list">
+		delete from orders where order_id in
+		<foreach collection="list" open="(" close=")" separator="," item="order_id" >
+			#{order_id}
+		</foreach>
+	</delete>
+	<delete id="delMutilDetail" parameterType="list">
+		delete from orderdetail where order_id in
+		<foreach collection="list" open="(" close=")" separator="," item="order_id" >
+			#{order_id}
+		</foreach>
+	</delete>
+
+	<update id="updateOrderstatus" parameterType="Orders">
+			update orders set order_status = #{order_status}
+				where order_id = #{order_id}
+	</update>
+	<update id="updateOrderstatusByList" parameterType="list" >
+		      update orders set order_status=2
+		      where order_id in 
+		      <foreach collection="list" open="(" close=")" separator="," item="order_id" >
+				  #{order_id}
+			</foreach>
+		</update>
+	
+	<sql id="conditionSql1">
+	from orders
+		left join orderdetail
+		on orderdetail.order_id = orders.order_id
+		left join goodsdetail
+		on orderdetail.goodsdetail_id = goodsdetail.goodsdetail_id
+		left join goods
+		on goodsdetail.goods_id = goods.goods_id
+		left join image
+		on image.goodsdetail_id = goodsdetail.goodsdetail_id
+		<where>
+			<if test="user_id!=null and user_id!=''">
+				 user_id = #{user_id}
+			</if>
+			<if test="order_id!=null and order_id!=''">
+				 and orders.order_id = #{order_id}
+			</if>
+			<if test="order_status!=null">
+				 and order_status = #{order_status}
+			</if>
+			<if test="order_time!=null">
+				 and order_time = #{order_time}
+			</if>
+		</where>
+	</sql>
+	<!-- 排序条件的拼接 -->
+	<sql id="orderSql1">
+		<if test="orderby!=null and orderby!=''">
+			order by ${orderby}
+			<if test="orderway!=null and orderway!=''">
+				${orderway}
+			</if>
+		</if>
+	</sql>
+	<!-- 分页条件的拼接 -->
+	<sql id="pageSql1">
+		<if test="start!=null and pagesize!=null">
+			limit ${start},${pagesize}
+		</if>
+	</sql>
+
+	<select id="selectOrder" parameterType="map" resultMap="OrdersMap">
+		select * 
+		<include refid="conditionSql1"/>
+		<include refid="orderSql1"/>
+		<include refid="pageSql1"/>
+	</select>
+	
+	<!-- 带查询条件统计查询 -->
+	<select id="SelectOrderConditionCount" resultType="int">
+		select count(*) <include refid="conditionSql1"></include>
+	</select>
+	
+	<resultMap type="Orders" id="OrdersMap">
+		<id property="order_id" column="order_id"/>
+		<result property="to_userName" column="to_userName"/>
+		<result property="to_addr" column="to_addr"/>
+		<result property="to_tel" column="to_tel"/>
+		<result property="order_time" column="order_time"/>
+		<result property="order_status" column="order_status"/>
+		<result property="order_totalmoney" column="order_totalmoney"/>
+		<association property="user" javaType="Users">
+			<id property="user_id" column="user_id"/>
+		</association>
+		<collection property="orderDetail" ofType="OrderDetail">
+			<id property="orderdetail_id" column="orderdetail_id"/>
+			<result property="goods_count" column="goods_count"/>
+			<result property="goods_buyprice" column="goods_buyprice"/>
+				<association property="goodsDetail" javaType="GoodsDetail">
+					<id property="goodsdetail_id" column="goodsdetail_id"/>
+					<result property="goodsdetail_price" column="goodsdetail_price"/>
+					<result property="goods_count" column="goods_count"/>
+					<association property="goods" javaType="Goods">
+						<id property="goods_id" column="goods_id"/>
+						<result property="goods_name" column="goods_name"/>
+						<result property="goods_desc" column="goods_desc"/>
+						<result property="goods_pubtime" column="goods_pubtime"/>
+						<result property="goods_isnew" column="goods_isnew"/>
+						<result property="goods_sale" column="goods_sale"/>
+						<association property="thirdType" javaType="ThirdType">
+							<id property="thirdtype_id" column="thirdtype_id"/>
+							<result property="thirdtype_name" column="thirdtype_name"/>
+						</association>
+					</association>
+					<collection property="images" ofType="Image">
+						<id property="image_id" column="image_id"/>
+						<result property="image_path" column="image_path"/>
+					</collection>
+				</association>
+			</collection>
+	</resultMap>
+	
+<!-- 	*********************************************************************** -->
+	<sql id="conditionSql2">
+		from orderdetail
+		left join goodsdetail
+		on orderdetail.goodsdetail_id = goodsdetail.goodsdetail_id
+		left join goods
+		on goodsdetail.goods_id = goods.goods_id
+		left join orders
+		on orderdetail.order_id = orders.order_id
+	
+		<where>
+			<if test="orderdetail_id!=null and orderdetail_id!=''">
+				 orderdetail_id = #{orderdetail_id}
+			</if>
+			<if test="order_id!=null and order_id!=''">
+				 and orderdetail.order_id = #{order_id}
+			</if>
+		</where>
+	</sql>
+	
+<!-- 	排序条件的拼接 -->
+	<sql id="orderSql2">
+		<if test="orderby!=null and orderby!=''">
+			order by ${orderby}
+			<if test="orderway!=null and orderway!=''">
+				${orderway}
+			</if>
+		</if>
+	</sql>
+<!-- 	分页条件的拼接 -->
+	<sql id="pageSql2">
+		<if test="start!=null and pagesize!=null">
+			limit ${start},${pagesize}
+		</if>
+	</sql>
+
+	<select id="selectDetail" parameterType="map" resultMap="OrderDetailMap">
+		select orderdetail_id,orderdetail.goods_count,goods_buyprice,orderdetail.goodsdetail_id,
+	goods_name,goodsdetail_price,goods_desc,goods_pubtime,goods_isnew,goods.thirdtype_id,
+	orderdetail.order_id
+		<include refid="conditionSql2"/>
+		<include refid="orderSql2"/>
+		<include refid="pageSql2"/>
+	</select>
+	
+<!-- 	带查询条件统计查询 -->
+	<select id="SelectDetailConditionCount" resultType="int">
+		select count(*) <include refid="conditionSql2"></include>
+	</select>
+	
+	<resultMap type="OrderDetail" id="OrderDetailMap">
+		<id property="orderdetail_id" column="orderdetail_id"/>
+		<result property="goods_count" column="goods_count"/>
+		<result property="goods_buyprice" column="goods_buyprice"/>
+		<association property="goodsDetail" javaType="GoodsDetail">
+			<id property="goodsdetail_id" column="goodsdetail_id"/>
+			<result property="goodsdetail_price" column="goodsdetail_price"/>
+			<result property="goods_count" column="goods_count"/>
+				<association property="goods" javaType="Goods">
+					<id property="goods_id" column="goods_id"/>
+					<result property="goods_name" column="goods_name"/>
+					<result property="goods_desc" column="goods_desc"/>
+					<result property="goods_pubtime" column="goods_pubtime"/>
+					<result property="goods_isnew" column="goods_isnew"/>
+					<result property="goods_sale" column="goods_sale"/>
+					<association property="thirdType" javaType="ThirdType">
+						<id property="thirdtype_id" column="thirdtype_id"/>
+						<result property="thirdtype_name" column="thirdtype_name"/>
+					</association>
+				</association>
+		</association>
+		<association property="orders" javaType="Orders">
+			<id property="order_id" column="Order_id"/>
+		</association>
+	</resultMap>
+</mapper>

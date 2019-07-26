@@ -1,0 +1,41 @@
+
+    <h2>Add a pagination to TreeGrid</h2>
+    <div class="demo-info" style="margin-bottom:10px">
+        <div class="demo-tip icon-tip">&nbsp;</div>
+        <div>This example shows how to add a pagination to TreeGrid.</div>
+    </div>
+    
+    <table title="Products" class="easyui-treegrid" style="width:700px;height:300px"
+            data-options="
+            	cls:'treegrid',
+                url: 'treegrid4_getdata.php',
+                rownumbers: true,
+                pagination: true,
+                pageSize: 2,
+                pageList: [2,10,20],
+                idField: 'id',
+                treeField: 'name',
+                onBeforeLoad: function(row,param){
+                    if (!row) {    // load top level rows
+                        param.id = 0;    // set id=0, indicate to load new page rows
+                    }
+                }
+            ">
+        <thead>
+            <tr>
+                <th field="name" width="250">Name</th>
+                <th field="quantity" width="100" align="right">Quantity</th>
+                <th field="price" width="150" align="right" formatter="formatDollar">Price</th>
+                <th field="total" width="150" align="right" formatter="formatDollar">Total</th>
+            </tr>
+        </thead>
+    </table>
+    <script>
+        function formatDollar(value){
+            if (value){
+                return '$'+value;
+            } else {
+                return '';
+            }
+        }
+    </script>

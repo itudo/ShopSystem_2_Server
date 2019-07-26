@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.AddressMapper">
+
+	<!-- 添加地址 -->
+	<insert id="addAddress" parameterType="Address"  useGeneratedKeys="true" keyProperty="address_id" >
+		insert into address(address_name,address_code,address_status, user_id,address_tel,address_user)
+		values(#{address_name},#{address_code},0,#{user.user_id},#{address_tel},#{address_user})
+	</insert>
+	
+	
+	<!-- 根据id查找address -->
+	<select id="getAddress" resultType="Address" parameterType="Users">
+		select * from address where user_id=#{user_id}
+	</select>
+	
+	<!-- 根据status查找address -->
+	<select id="getAddressByStatus" resultType="Address" parameterType="map">
+		select * from address where address_status=#{address_status} and user_id=#{user_id}
+	</select>
+	
+	
+	<!-- 更新地址 -->
+	<update id="updateAddress" parameterType="Address">
+	   update address set address_name=#{address_name},address_code=#{address_code},address_user=#{address_user},address_tel=#{address_tel}
+	   where address_id=#{address_id}
+	</update>
+	
+	<update id="updateStatus" parameterType="Address">
+	   update address set address_status=#{address_status}
+	   where address_id=#{address_id}
+	</update>
+    
+	<!-- 根据id删除单条信息 -->
+	<delete id="delSingleAddress">
+		delete from address where address_id = #{address_id}
+	</delete>
+
+
+
+</mapper>

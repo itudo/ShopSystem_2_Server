@@ -1,0 +1,41 @@
+
+   <h2>Remote JSONP</h2>
+    <p>This sample shows how to use JSONP to retrieve data from a remote site.</p>
+    <div style="margin:20px 0"></div>
+    <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <label class="label-top">State:</label>
+            <input class="easyui-combobox" name="language" style="width:100%;height:26px;" data-options="
+                    loader: myloader,
+                    mode: 'remote',
+                    valueField: 'id',
+                    textField: 'name'
+                    ">
+        </div>
+    </div>
+    <script>
+        var myloader = function(param,success,error){
+            var q = param.q || '';
+            if (q.length <= 2){return false}
+            $.ajax({
+                url: 'http://gd.geobytes.com/AutoCompleteCity',
+                dataType: 'jsonp',
+                data: {
+                    q: q
+                },
+                success: function(data){
+                    var items = $.map(data, function(item,index){
+                        return {
+                            id: index,
+                            name: item
+                        };
+                    });
+                    success(items);
+                },
+                error: function(){
+                    error.apply(this, arguments);
+                }
+            });
+        }
+    </script>
+

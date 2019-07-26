@@ -1,0 +1,20 @@
+
+	<h2>Basic TreeGrid</h2>
+	<p>TreeGrid allows you to expand or collapse group rows.</p>
+	<div style="margin:20px 0;"></div>
+	<table title="Folder Browser" class="easyui-treegrid" style="width:700px;height:250px"
+			data-options="
+				url: 'example/treegrid/treegrid_data1.json',
+				method: 'get',
+				rownumbers: true,
+				idField: 'id',
+				treeField: 'name'
+			">
+		<thead>
+			<tr>
+				<th data-options="field:'name'" width="220">Name</th>
+				<th data-options="field:'size'" width="100" align="right">Size</th>
+				<th data-options="field:'date'" width="150">Modified Date</th>
+			</tr>
+		</thead>
+	</table>

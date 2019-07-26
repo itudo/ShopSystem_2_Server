@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.SecondTypeMapper">
+
+	<select id="findAllSecondType" resultMap="SecondTypeMap">
+		select * from
+		secondtype
+	</select>
+
+	<select id="findSecondTypeById" parameterType="Integer"
+		resultMap="SecondTypeMap">
+		select * from secondtype where secondtype_id
+		=#{secondtype_id}
+	</select>
+	<!--通过一级表id查找二级表  -->
+	<select id="findSecondTypeByFirstTypeId" parameterType="Integer"
+		resultMap="SecondTypeMap">
+		select * from secondtype where firsttype_id
+		=#{firsttype_id}
+	</select>
+	
+	<!-- 添加二级表 -->
+	<insert id="addSecondType" parameterType="SecondType">  
+		insert into
+		SecondType(secondtype_name,firsttype_id)
+		values(#{secondtype_name},#{fristType.firsttype_id})
+	</insert>
+	<!-- 删除二级表 -->
+	<delete id="delSecondType" parameterType="Integer">
+		delete   from
+		SecondType where secondtype_id =#{secondtype_id}
+	</delete>
+
+	<!--更新二级表 -->
+	<update id="updateSecondType" parameterType="SecondType">
+		update SecondType
+		set secondtype_name=#{secondtype_name}
+		,firsttype_id=#{fristType.firsttype_id} where secondtype_id=#{secondtype_id}
+	</update>
+
+	<!--通过二级表id查三级表list -->
+	<select id="findThirdTypeBySecondTypeId" parameterType="Integer" resultMap="SecondTypeMap">
+		select a.secondtype_id
+		,a.secondtype_name,b.thirdtype_id,b.thirdtype_name
+		from SecondType a
+		left join thirdtype b
+		on a.secondtype_id = b.secondtype_id
+		where
+		a.secondtype_id =#{secondtype_id}
+
+	</select>
+
+
+	<resultMap type="SecondType" id="SecondTypeMap">
+		<id property="secondtype_id" column="secondtype_id" />
+		<result property="secondtype_name" column="secondtype_name" />
+		<association property="fristType" javaType="FirstType">
+			<id property="firsttype_id" column="firsttype_id" />
+			<result property="firsttype_name" column="firsttype_name" />
+		</association>
+		<collection property="thirdType" ofType="ThirdType">
+		     <id property="thirdtype_id" column="thirdtype_id" />
+			 <result property="thirdtype_name" column="thirdtype_name" />
+		</collection>
+	</resultMap>
+</mapper>

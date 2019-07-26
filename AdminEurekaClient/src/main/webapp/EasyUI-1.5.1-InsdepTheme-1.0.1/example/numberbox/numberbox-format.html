@@ -1,0 +1,26 @@
+
+    <h2>Format NumberBox</h2>
+    <p>Number formatting is the ability to control how a number is displayed.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <label class="label-top">Number in the United States</label>
+            <input class="easyui-numberbox" value="1234567.89" data-options="precision:2,groupSeparator:',',width:'100%',height:26">
+        </div>
+        <div style="margin-bottom:20px">
+            <label class="label-top">Number in France</label>
+            <input class="easyui-numberbox" value="1234567.89" data-options="precision:2,groupSeparator:' ',decimalSeparator:',',width:'100%',height:26">
+        </div>
+        <div style="margin-bottom:20px">
+            <label class="label-top">Currency:USD</label>
+            <input class="easyui-numberbox" value="1234567.89" data-options="precision:2,groupSeparator:',',decimalSeparator:'.',prefix:'$',width:'100%',height:26">
+        </div>
+        <div style="margin-bottom:20px">
+            <label class="label-top">Currency:EUR</label>
+            <input class="easyui-numberbox" value="1234567.89" data-options="precision:2,groupSeparator:',',decimalSeparator:' ',prefix:'€',width:'100%',height:26">
+        </div>
+        <div style="margin-bottom:20px">
+            <label class="label-top">Currency:EUR</label>
+            <input class="easyui-numberbox" value="1234567.89" data-options="precision:2,groupSeparator:' ',decimalSeparator:',',suffix:'€',width:'100%',height:26">
+        </div>
+    </div>

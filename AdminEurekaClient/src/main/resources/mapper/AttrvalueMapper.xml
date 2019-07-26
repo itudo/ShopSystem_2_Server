@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.AttrvalueMapper">
+	 
+
+	<!-- 通过pid查找属性值 -->
+	<select id="getAttrvalueByPid" parameterType="Integer"
+		resultType="Attrvalue">
+		<!-- select a.attribute_id,a.attribute_name,b.attribute_id as
+		attrvalue_id,b.attribute_name as
+		attrvalue_value from attribute a
+		join
+		attribute b
+		on a.attribute_id =
+		b.pid
+		where b.pid = #{attribute_id} -->
+		
+		select  attribute_id as
+		attrvalue_id, attribute_name as
+		attrvalue_value from attribute where  pid = #{attribute_id}
+	</select>
+
+	 
+
+	 
+</mapper>

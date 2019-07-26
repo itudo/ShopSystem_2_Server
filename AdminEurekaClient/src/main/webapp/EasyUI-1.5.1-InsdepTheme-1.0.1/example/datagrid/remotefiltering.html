@@ -1,0 +1,39 @@
+    <h2>Remote Filtering on DataGrid</h2>
+    <div class="demo-info" style="margin-bottom:10px">
+        <div class="demo-tip icon-tip">&nbsp;</div>
+        <div>This sample shows how to apply remote filtering and pagination on a datagrid component.</div>
+    </div>
+    
+    <table id="dg" title="DataGrid" style="width:700px;height:250px">
+        <thead>
+            <tr>
+                <th data-options="field:'itemid',width:80">Item ID</th>
+                <th data-options="field:'productid',width:100">Product</th>
+                <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+                <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+                <th data-options="field:'attr1',width:250">Attribute</th>
+            </tr>
+        </thead>
+    </table>
+    <script type="text/javascript" src="example/datagrid/datagrid-filter.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var dg = $('#dg').datagrid({
+                url: 'datagrid33_getdata.php',
+                pagination: true,
+                remoteFilter: true,
+                rownumbers: true
+            });
+            dg.datagrid('enableFilter', [{
+                field:'listprice',
+                type:'numberbox',
+                options:{precision:1},
+                op:['less','greater']
+            },{
+                field:'unitcost',
+                type:'numberbox',
+                options:{precision:1},
+                op:['less','greater']
+            }]);
+        });
+    </script>

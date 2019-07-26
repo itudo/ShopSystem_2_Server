@@ -1,0 +1,70 @@
+
+    <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <label class="label-top">Email:</label>
+            <input id="tt" style="width:100%;height:26px" data-options="
+                    prompt: 'Input something here!',
+                    value: 'my@email.com',
+                    icons:[{
+                        iconCls:'icon-search',
+                        handler: function(e){
+                            var v = $(e.data.target).textbox('getValue');
+                            alert('The inputed value is ' + (v ? v : 'empty'));
+                        }
+                    }]
+                    ">
+        </div>
+    </div>
+    <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px; margin:20px 0 0;">
+        <div style="margin-bottom:20px">
+            <label class="label-top">Email:</label>
+            <input id="dd" style="width:100%;height:26px" data-options="
+            		iconAlign:'left',
+                    prompt: 'Input something here!',
+                    value: 'my@email.com',
+                    icons:[{
+                        iconCls:'icon-search',
+                        handler: function(e){
+                            var v = $(e.data.target).textbox('getValue');
+                            alert('The inputed value is ' + (v ? v : 'empty'));
+                        }
+                    }]
+                    ">
+        </div>
+    </div>
+    <script>
+        $.extend($.fn.textbox.methods, {
+            addClearBtn: function(jq, iconCls){
+                return jq.each(function(){
+                    var t = $(this);
+                    var opts = t.textbox('options');
+                    opts.icons = opts.icons || [];
+                    opts.icons.unshift({
+                        iconCls: iconCls,
+                        handler: function(e){
+                            $(e.data.target).textbox('clear').textbox('textbox').focus();
+                            $(this).css('visibility','hidden');
+                        }
+                    });
+                    t.textbox();
+                    if (!t.textbox('getText')){
+                        t.textbox('getIcon',0).css('visibility','hidden');
+                    }
+                    t.textbox('textbox').bind('keyup', function(){
+                        var icon = t.textbox('getIcon',0);
+                        if ($(this).val()){
+                            icon.css('visibility','visible');
+                        } else {
+                            icon.css('visibility','hidden');
+                        }
+                    });
+                });
+            }
+        });
+        
+        $(function(){
+            $('#tt').textbox().textbox('addClearBtn', 'icon-clear');
+			$('#dd').textbox().textbox('addClearBtn', 'icon-clear');
+        });
+    </script>
+

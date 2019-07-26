@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.ReviewMapper">
+	<!-- 使用默认mybatis : 二级缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+	
+	<!-- 添加評論 -->
+	<insert id="addReview" parameterType="Review">
+		insert into review(review_level,review_content,review_image,orderdetail_id,user_id)
+	 	values (#{review_level},#{review_conten},#{review_image},#{orderDetail.orderdetail_id},#{user.user_id});
+	</insert>
+	
+	<!-- 刪除評論 -->
+	<delete id="delReview" parameterType="map">
+		delete from review where review_id in (select review_id from orderdetail where orderdetail_id=#{orderdetail_id})
+	</delete>
+	
+	<!-- 我的評論 -->
+	<select id="myReview" parameterType="Users" resultMap="ReviewMap">
+		<include refid="reviewSql"/>
+		where users.user_id=1
+		group by review.review_id
+	</select>
+	
+	<!-- 商品評論 -->
+	<select id="getReviewByGoods" parameterType="Goods" resultMap="ReviewMap">
+		<include refid="reviewSql"/>
+		where goodsdetail.goods_id=#{goods_id}
+		group by review.review_id
+	</select>
+	<!-- 所有评论 -->
+	<select id="getAllReview" resultMap="ReviewMap" parameterType="map">
+		<include refid="reviewSql"/>
+		group by review.review_id
+		<include refid="orderSql"></include>
+	</select>
+	<select id="SelectReviewConditionCount" resultType="int">
+		select count(*) from review
+	</select>
+	<!-- 排序条件的拼接 -->
+	<sql id="orderSql">
+		<if test="orderby!=null and orderby!=''">
+			order by ${orderby}
+			<if test="orderway!=null and orderway!=''">
+				${orderway}
+			</if>
+		</if>
+	</sql>
+	<sql id="reviewSql">
+		select *,group_concat(attribute.attribute_name) as attribute
+		from review
+		left join users
+		on users.user_id=review.user_id
+		left join orderdetail
+		on orderdetail.orderdetail_id = review.orderdetail_id
+		left join goodsdetail
+		on orderdetail.goodsdetail_id=goodsdetail.goodsdetail_id
+		left join goods
+		on goodsdetail.goods_id = goods.goods_id
+		left join contact
+		on contact.goodsdetail_id=goodsdetail.goodsdetail_id
+		left join attribute
+		on attribute.attribute_id=contact.attribute_id
+		
+	</sql>
+	
+	<resultMap type="Review" id="ReviewMap">
+			<id property="review_id" column="review_id"/>
+			<result property="review_level" column="review_level"/>
+			<result property="review_content" column="review_content"/>
+			<result property="review_image" column="review_image"/>
+			<result property="review_date" column="review_date"/>
+			<association property="users" javaType="Users">
+					<id property="user_id" column="user_id"/>
+					<result property="user_name" column="user_name"/>
+			</association>
+			<association property="orderDetail" javaType="OrderDetail">
+					<id property="orderdetail_id" column="orderdetail_id"/>
+					<result property="goods_count" column="goods_count"/>
+					<result property="goods_buyprice" column="goods_buyprice"/>
+					<association property="goodsDetail" javaType="GoodsDetail">
+						<id property="goodsdetail_id" column="goodsdetail_id"/>
+						<result property="goodsdetail_price" column="goodsdetail_price"/>
+						<result property="goods_count" column="goods_count"/>
+						<association property="goods" javaType="Goods">
+							<id property="goods_id" column="goods_id"/>
+							<result property="goods_name" column="goods_name"/>
+							<result property="goods_desc" column="goods_desc"/>
+							<result property="goods_pubtime" column="goods_pubtime"/>
+							<result property="goods_isnew" column="goods_isnew"/>
+							<result property="goods_sale" column="goods_sale"/>
+							<association property="thirdType" javaType="ThirdType">
+								<id property="thirdtype_id" column="thirdtype_id"/>
+								<result property="thirdtype_name" column="thirdtype_name"/>
+							</association>
+					   </association>
+						<collection property="images" ofType="Image">
+							<id property="image_id" column="image_id"/>
+							<result property="image_path" column="image_path"/>
+						</collection>
+				</association>
+			</association>
+	</resultMap>
+	
+</mapper>

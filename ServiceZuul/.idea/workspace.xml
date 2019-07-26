@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="81c44a69-e86b-437a-b789-0b73428472a9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../AdminEurekaClient/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdminEurekaClient/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ShopSysServer/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UserEurekaClient/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UserEurekaClient/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/AdminEurekaClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/AdminEurekaClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/biz/FirstTypeBiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/biz/FirstTypeBiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/biz/GoodsBiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/biz/GoodsBiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/biz/impl/CartBizImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/biz/impl/CartBizImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/biz/impl/ContactBizImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/biz/impl/ContactBizImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/biz/impl/GoodsBizImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/biz/impl/GoodsBizImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/AdminMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/AttributeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/AttributeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/AttrvalueMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/AttrvalueMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/ContactMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/ContactMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/FirstTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/FirstTypeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/GoodsDetailMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/GoodsDetailMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/GoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/GoodsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/ImageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/ImageMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/OrdersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/OrdersMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/ReviewMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/ReviewMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/SecondTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/SecondTypeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/ThirdTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/ThirdTypeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/UsersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/UsersMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/impl/BaseDaoMybatisImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/dao/impl/BaseDaoMybatisImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/web/controllers/AdminGoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/web/controllers/AdminGoodsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/web/controllers/AdminGoodsDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/java/com/yc/web/controllers/AdminGoodsDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/db (1).sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/db.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/goodsdetail.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/init.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/sql.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/3.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/air1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/apple.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/baoyu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/beef.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/tv1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/tv2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdminEurekaClient/src/main/webapp/imgGoods/tv3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailEurekaClient/freeMarker/mail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MailEurekaClient/freeMarker/mail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailEurekaClient/freeMarker/mailTemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MailEurekaClient/freeMarker/mailTemp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailEurekaClient/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MailEurekaClient/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailEurekaClient/src/main/java/com/yc/controllers/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailEurekaClient/src/main/java/com/yc/controllers/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShopSysServer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ShopSysServer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/bean/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/bean/OrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/bean/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/bean/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/AddressBiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/AddressBiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/GoodsBiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/GoodsBiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/OrderBiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/OrderBiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/AddressBizImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/AddressBizImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/CartBizImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/CartBizImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/GoodsBizImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/GoodsBizImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/OrderBizImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/OrderBizImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/ReviewBizImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/ReviewBizImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/SolrService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/biz/impl/SolrService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/AddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/AddressMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/AttributeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/AttributeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/CartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/CartMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/FirstTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/FirstTypeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/GoodsDetailMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/GoodsDetailMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/GoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/GoodsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/GoodsTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/GoodsTypeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/OrdersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/OrdersMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/ReviewMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/ReviewMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/SecondTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/SecondTypeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/ThirdTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdminEurekaClient/src/main/resources/mapper/ThirdTypeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/UsersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/mapper/UsersMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/impl/BaseDaoMybatisImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/dao/impl/BaseDaoMybatisImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/model/JsonModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/model/JsonModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/CollectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/CollectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/GoodsListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/GoodsListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/SolrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/SolrController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/controllers/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/listeners/InitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/java/com/yc/web/listeners/InitListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/resources/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgGoods/apple.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgGoods/baoyu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgGoods/beef.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgHead/apple.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgHead/baiqieji.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgHead/baishikele.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgHead/baixiangguo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgHead/baoyu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgHead/room3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgHead/tv1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgReview/baixiangguo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgReview/room1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgReview/room2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgReview/room3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgReview/room6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgReview/tv1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/imgReview/u=2664815884,20638765&amp;fm=26&amp;gp=0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/userCenter/user/myOrder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/userCenter/user/myOrder.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/userCenter/user/success2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/main/webapp/userCenter/user/success2.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserEurekaClient/src/test/java/com/yc/test/testAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserEurekaClient/src/test/java/com/yc/test/testAttribute.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yc/ServiceZuulApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/maven3.2/apache-maven-3.2.5" />
+        <option name="userSettingsFile" value="D:\maven3.2\apache-maven-3.2.5\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="698" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="shopsys" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServiceZuul" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shopsys" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServiceZuul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shopsys" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServiceZuul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shopsys" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServiceZuul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shopsys" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServiceZuul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="yc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shopsys" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServiceZuul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546070958804" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="ServiceZuulApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="shopsys" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yc.ServiceZuulApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="81c44a69-e86b-437a-b789-0b73428472a9" name="Default Changelist" comment="" />
+      <created>1546059607881</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1546059607881</updated>
+      <workItem from="1546059610755" duration="1800000" />
+      <workItem from="1546066694798" duration="76000" />
+      <workItem from="1546067375719" duration="828000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2704000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2623077" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5818815" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yc/ServiceZuulApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

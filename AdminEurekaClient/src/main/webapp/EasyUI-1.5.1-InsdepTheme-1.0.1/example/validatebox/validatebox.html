@@ -1,0 +1,31 @@
+
+    <h2>Basic ValidateBox</h2>
+    <p>It's easy to add validate logic to a input box.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" title="Register" style="width:100%;max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <label class="label-top">User Name:</label>
+            <input class="easyui-validatebox tb" data-options="required:true,validType:'length[3,10]'">
+        </div>
+        <div style="margin-bottom:20px">
+            <label class="label-top">Email:</label>
+            <input class="easyui-validatebox tb" data-options="required:true,validType:'email'">
+        </div>
+        <div style="margin-bottom:20px">
+            <label class="label-top">Url:</label>
+            <input class="easyui-validatebox tb" data-options="required:true,validType:'url'">
+        </div>
+        <div style="margin-bottom:20px">
+            <label class="label-top">Phone:</label>
+            <input class="easyui-validatebox tb" data-options="required:true">
+        </div>
+    </div>
+    <style scoped="scoped">
+        .tb{
+            width:100%;
+            margin:0;
+            padding:5px 4px;
+            border:1px solid #ccc;
+            box-sizing:border-box;
+        }
+    </style>

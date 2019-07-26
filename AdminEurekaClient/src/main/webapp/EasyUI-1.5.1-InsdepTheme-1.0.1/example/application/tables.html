@@ -1,0 +1,143 @@
+<table id="table" style="height:500px;"
+            data-options="">
+        <thead>
+            <tr>
+            	<th data-options="field:'ck',checkbox:true"></th>
+                <th data-options="field:'itemid',width:80,formatter:text">Item ID</th>
+                <th data-options="field:'productid',width:100">Product</th>
+                <th data-options="field:'listprice',width:80,formatter:listprice,align:'center'">List Price</th>
+                <th data-options="field:'unitcost',width:160,formatter:unitcost,align:'center'">Unit Cost</th>
+                <th data-options="field:'status',width:80,formatter:status,align:'center'">Attribute</th>
+                <th data-options="field:'attr1',width:120,align:'center'">Status</th>
+                <th data-options="field:'operate',align:'center',formatter:operate">Operate</th>
+                <th data-options="field:'button',width:120,align:'center',formatter:button">Button</th>
+            </tr>
+        </thead>
+    </table>
+<script>
+	function listprice(value,row,index){
+		return "<span class='block-success span-badge'>"+value+"</span>";
+	}
+	function unitcost(value,row,index){
+		var progressbar;
+		if(value<10){
+			progressbar="<div class='progressbar progressbar-green' data-options='value:"+value+"'>"+value+"</div>";
+		}else if(value>10&&value<30){
+			progressbar="<div class='progressbar progressbar-blue' data-options='value:"+value+"'>"+value+"</div>";
+		}else if(value>30&&value<50){
+			progressbar="<div class='progressbar' data-options='value:"+value+"'>"+value+"</div>";
+		}else if(value>50&&value<80){
+			progressbar="<div class='progressbar progressbar-yellow' data-options='value:"+value+"'>"+value+"</div>";
+		}else{
+			progressbar="<div class='progressbar progressbar-red' data-options='value:"+value+"'>"+value+"</div>";
+		}
+		
+		return progressbar;
+	}
+	function operate(value,row,index){
+		return "<a href='javascript:void(0)' class='operate' data-options='value:"+value+",iconCls:\"icon-set\"'></a>";
+	}
+	function status(value,row,index){
+		return "<input class='switchbutton'>";
+	}
+	function button(value,row,index){
+		return "<a href='#' class='button-delete button-danger'>删除</a> <a href='#' class='button-edit button-default'>编辑</a>";
+	}
+	function text(value,row,index){
+		return "<input class='text' value='"+value+"'>";
+	}
+$(function(){
+
+	$('#table').datagrid({
+		cls:"theme-datagrid", 
+	    title:"Basic DataGrid",
+		singleSelect:true,
+		//showFooter:true,
+		cache:false,
+		pagination:true,
+		pageSize:10,
+		//rownumbers:true,//显示序号
+		collapsible:true,
+		url:'example/application/datagrid_data4.json',
+		onLoadSuccess:function(){
+			$('.operate').menubutton({  
+				plain:false,  
+				menu: '#operate_menu'
+			}); 
+			$('#operate_menu').menu({
+				onClick:function(item){
+					
+					var a=$('.operate').menubutton("options");
+					switch (item.name)
+					{
+						case "undo":
+							alert("undo "+a.value);
+							break;
+						case "redo":
+							alert("redo "+a.value);
+						  	break;
+						case "cut":
+						  	alert("cut "+a.value);
+						  	break;
+						case "copy":
+						  	alert("copy "+a.value);
+						  	break;
+						case "paste":
+						  	alert("paste "+a.value);
+						  	break;
+						case "delete":
+						  	alert("delete "+a.value);
+						  	break;
+					}
+				}	
+			});
+
+			$('.progressbar').progressbar({}); 
+			
+			$('.switchbutton').switchbutton({ 
+			  height:23
+			});
+			
+			$('.button-delete').linkbutton({ 
+			});
+			$('.button-edit').linkbutton({ 
+			});
+			
+			$('.text').textbox({
+				width:70,
+				height:30
+			})
+
+			
+			
+			$('.operate-append,.operate-edit,.operate-delete').linkbutton({});
+			$('.operate-append').on('click', function(){    
+				var a=$(this).linkbutton("options");
+				alert("append "+a.value);
+			});   
+			$('.operate-edit').on('click', function(){    
+				var a=$(this).linkbutton("options");
+				alert("edit "+a.value);
+			});
+			$('.operate-delete').on('click', function(){    
+				var a=$(this).linkbutton("options");
+				alert("delete "+a.value);
+			}); 
+		}
+	});	
+	
+	  
+	
+})
+</script>
+<div id="operate_menu" style="width:150px;">   
+    <div data-options="name:'undo'">Undo</div>   
+    <div data-options="name:'redo'">Redo</div>   
+    <div class="menu-sep"></div>   
+    <div data-options="name:'cut'">Cut</div>   
+    <div data-options="name:'copy'">Copy</div>   
+    <div data-options="name:'paste'">Paste</div>   
+    <div class="menu-sep"></div>   
+    <div data-options="name:'delete'">Delete</div>   
+    <div>Select All</div>   
+</div>

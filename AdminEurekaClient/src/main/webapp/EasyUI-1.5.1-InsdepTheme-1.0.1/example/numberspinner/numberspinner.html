@@ -1,0 +1,14 @@
+
+    <h2>Basic NumberSpinner</h2>
+    <p>Click spinner button to change value.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
+        <input class="easyui-numberspinner" style="width:100%;height:26px;" data-options="
+                    onChange: function(value){
+                        $('#vv').text(value);
+                    }
+                ">
+        <div style="margin:10px 0;">
+            Value: <span id="vv"></span>
+        </div>
+    </div>

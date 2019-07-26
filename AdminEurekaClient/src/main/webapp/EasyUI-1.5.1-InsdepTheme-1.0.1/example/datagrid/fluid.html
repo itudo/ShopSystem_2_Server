@@ -1,0 +1,18 @@
+
+	<h2>Fluid DataGrid</h2>
+	<p>This example shows how to assign percentage width to a column in DataGrid.</p>
+	<div style="margin:20px 0;"></div>
+	
+	<table id="dg" class="easyui-datagrid" title="Fluid DataGrid" style="width:700px;height:250px"
+			data-options="singleSelect:true,collapsible:true,url:'example/datagrid/datagrid_data1.json',method:'get'">
+		<thead>
+			<tr>
+				<th data-options="field:'itemid',resizable:false" width="15%">Item ID(15%)</th>
+				<th data-options="field:'productid',resizable:false" width="15%">Product(15%)</th>
+				<th data-options="field:'listprice',align:'right',resizable:false" width="15%">List Price(15%)</th>
+				<th data-options="field:'unitcost',align:'right',resizable:false" width="15%">Unit Cost(15%)</th>
+				<th data-options="field:'attr1',resizable:false" width="25%">Attribute(25%)</th>
+				<th data-options="field:'status',align:'center',resizable:false" width="15%">Status(15%)</th>
+			</tr>
+		</thead>
+	</table>

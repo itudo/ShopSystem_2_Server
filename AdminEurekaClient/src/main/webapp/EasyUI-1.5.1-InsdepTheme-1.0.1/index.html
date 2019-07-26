@@ -1,0 +1,916 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<link rel="shortcut icon" href="example/favicon.ico" />
+<title>演示 - jQuery EasyUI 1.5.x Of Insdep theme examples</title>
+<!--
+    JQuery EasyUI 1.5.x of Insdep Theme 1.0.0
+    演示地址：https://www.insdep.com/example/
+    下载地址：https://www.insdep.com
+    问答地址：https://bbs.insdep.com
+
+    项目地址：http://git.oschina.net/weavors/JQuery-EasyUI-1.5.x-Of-Insdep-Theme
+
+    QQ交流群：184075694 （优先发布更新主题及内测包）
+-->
+<!--
+	注意样式表优先级
+    主题样式必须在easyui组件样式后。
+-->
+
+<link href="themes/insdep/easyui.css" rel="stylesheet" type="text/css">
+
+
+<!--
+    themes/insdep/easyui_animation.css
+    Insdep对easyui的额外增加的动画效果样式，根据需求引入或不引入，此样式不会对easyui产生影响
+-->
+<link href="themes/insdep/easyui_animation.css" rel="stylesheet" type="text/css">
+
+<!--
+    themes/insdep/easyui_plus.css
+    Insdep对easyui的额外增强样式,内涵所有 insdep_xxx.css 的所有组件样式
+    根据需求可单独引入insdep_xxx.css或不引入，此样式不会对easyui产生影响
+-->
+<link href="themes/insdep/easyui_plus.css" rel="stylesheet" type="text/css">
+
+<!--
+    themes/insdep/insdep_theme_default.css
+    Insdep官方默认主题样式,更新需要自行引入，此样式不会对easyui产生影响
+-->
+<link href="themes/insdep/insdep_theme_default.css" rel="stylesheet" type="text/css">
+
+<!--
+    themes/insdep/icon.css
+    美化过的easyui官方icons样式，根据需要自行引入
+-->
+<link href="themes/insdep/icon.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.easyui.min.js"></script>
+<script type="text/javascript" src="themes/insdep/jquery.insdep-extend.min.js"></script>
+
+<style type="text/css">
+    .layout-panel-west{ border-right: 1px solid #c5c5c5; }
+</style>
+<script>
+    $(function(){
+        /*布局部分*/
+        $('#master-layout').layout({
+                fit:true/*布局框架全屏*/
+        });   
+    });
+</script>
+</head>
+
+<body>
+	<div id="master-layout">
+        <div data-options="region:'north',border:false,bodyCls:'theme-header-layout'">
+        	<div class="theme-navigate">
+                <div class="left">
+                    <a href="https://www.insdep.com/" class="easyui-linkbutton" target="_blank">首页</a>
+                    <a href="https://www.insdep.com/list-1-1.html" class="easyui-linkbutton" target="_blank">入门</a>
+                    <a href="https://www.insdep.com/list-2-1.html" class="easyui-linkbutton" target="_blank">主题</a>
+                    <a href="https://www.insdep.com/list-3-1.html" class="easyui-linkbutton" target="_blank">组件</a>
+                    <a href="https://www.insdep.com/list-4-1.html" class="easyui-linkbutton" target="_blank">扩展</a>
+                    <a href="https://www.insdep.com/list-5-1.html" class="easyui-linkbutton" target="_blank">手册</a>
+                    <a href="https://www.insdep.com/list-107-1.html" class="easyui-linkbutton" target="_blank">日志</a>
+                    <a href="https://www.insdep.com/list-106-1.html" class="easyui-linkbutton" target="_blank">捐赠</a>
+                    <a href="https://bbs.insdep.com/?/explore/category-4" class="easyui-linkbutton" target="_blank">下载</a>
+                    <a href="https://bbs.insdep.com/" class="easyui-linkbutton" target="_blank">问答</a>
+                    <a href="https://www.insdep.com/list-8-1.html" class="easyui-linkbutton" target="_blank">关于</a>
+                </div>
+                <div class="right">
+                    <a href="#" class="easyui-menubutton theme-navigate-more-button" data-options="menu:'#more',hasDownArrow:false"></a>
+                    <div id="more" class="theme-navigate-more-panel">
+                    	<div>联系我们</div>
+                        <div>参与改进计划</div>
+                        <div>关于</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'west',split:true,border:false" title="演示" style="width:300px; padding:10px 20px;">
+
+        <ul class="easyui-tree"> 
+            <li>   
+                <span>EasyUI主题</span>
+                <ul>   
+                    <li>
+                        <span>默认主题</span>
+                        <ul>   
+                            <li><span><a href="example/theme/default/login.html" target="_blank">登录页面</a></span></li>
+                            <li><span><a href="example/theme/default/index.html" target="_blank">控制台页面</a></span></li>
+                            <li><span><a href="example/theme/default/index_left.html" target="_blank">带侧边栏 <i class="badge color-important">新</i></a></span></li>
+                            <li>
+                                <span>调用示例</span>
+                                <ul>   
+                                    <li><span><a href="#" onClick="$.insdep.control('example/application/user-panel1.html')">用户信息面板1</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/application/user-panel2.html')">用户信息面板2</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/application/user-panel3.html')">用户综合面板3</a></span></li>
+                                </ul>
+                            </li>
+                        </ul> 
+                    </li>
+                </ul>  
+            </li>   
+            <li>   
+                <span>EasyUI美化演示</span>
+                <ul>   
+                
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/text_and_layout.html')">文字</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/all_color.html')">色彩</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/color.html')">色彩体系 <i class="badge color-important">新</i></a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/tables-static.html')">美化表格 <i class="badge color-important">新</i></a></span></li>
+                    <!--<li><span><a href="#" onClick="$.insdep.control('example/application/button-group.html')">ButtonGroup <i class="badge color-important">新</i></a></span></li>-->
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/combo-loading.html')">Combo系列控件Loading <i class="badge color-important">新</i></a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/prompt.html')">提示条<i class="badge color-blue">新</i></a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/form.html')">表单集合</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/form-radius.html')">表单集合(圆角)</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/form-label.html')">表单集合Label</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/tables.html')">带控件表格</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/base-tables.html')">普通表格</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/table-complextoolbar.html')">带工具栏的表格</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/cacheeditor.html')">表格编辑</a></span></li>
+
+                </ul>  
+            </li>  
+
+            <li data-options="state:'closed'">
+                <span>EasyUI组件</span>
+                <ul>
+                    <li data-options="state:'closed'">   
+                        <span>Panel</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/panel/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/panel/paneltools.html')">Panel Tools</a></span></li>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/panel/customtools.html')">Custom Tools</a></span></li>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/panel/footer.html')">Panel Footer</a></span></li>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/panel/loadcontent.html')">Load Content</a></span></li>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/panel/nestedpanel.html')">Nested Panel</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/panel/fluid.html')">Fluid Panel</a></span></li>
+                            <li>
+                                <span>更多样式</span>
+                                <ul>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/radius.html')">边框圆角</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/unradius.html')">强制禁用边框圆角</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/unborder.html')">不显示外边框</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-red.html')">红色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-red1.html')">红色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-red2.html')">红色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-red3.html')">红色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-red4.html')">红色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-orange.html')">橙色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-orange1.html')">橙色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-orange2.html')">橙色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-orange3.html')">橙色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-orange4.html')">橙色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-green.html')">绿色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-green1.html')">绿色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-green2.html')">绿色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-green3.html')">绿色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-green4.html')">绿色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-blue.html')">蓝色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-blue1.html')">蓝色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-blue2.html')">蓝色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-blue3.html')">蓝色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-blue4.html')">蓝色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-deepblue.html')">深蓝色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-deepblue1.html')">深蓝色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-deepblue2.html')">深蓝色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-deepblue3.html')">深蓝色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-deepblue4.html')">深蓝色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-black.html')">黑色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-black1.html')">黑色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-black2.html')">黑色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-black3.html')">黑色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-black4.html')">黑色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-simple.html')">简约风格</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-simple1.html')">简约风格（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-simple2.html')">简约风格（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-simple3.html')">标题线主题（不显示标题线）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-simple4.html')">标题线主题（不显示标题背景色）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-simple5.html')">标题块主题（不显示标题线）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/panel/panel-simple6.html')">标题块主题（不显示标题背景色）</a></span></li>
+                                </ul>
+                            </li>
+                        </ul> 
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Accordion</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/accordion/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/accordion/tools.html')">Accordion Tools</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/accordion/ajax.html')">Loading Content with AJAX</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/accordion/actions.html')">Accordion Actions</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/accordion/expandable.html')">Keep Expandable</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/accordion/multiple.html')">Multiple Accordion Panels</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/accordion/fluid.html')">Fluid Accordion</a></span></li> 
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Tabs</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/autoheight.html')">Auto Height</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/hover.html')">Hover Tabs</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/nestedtabs.html')">Nested Tabs</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/striptools.html')">Strip Tools</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/tabstools.html')">Tabs Tools</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/style.html')">Tabs Style</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/tabposition.html')">Tab Position</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/fixedwidth.html')">Fixed Tab Width</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/tabimage.html')">Tabs with Images</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/dropdown.html')">Tabs with DropDown</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tabs/fluid.html')">Fluid Tabs</a></span></li>
+                            <li>
+                                <span>更多样式</span>
+                                <ul>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab.html')">tab 默认样式</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-plain.html')">tab 默认样式(使用样式表去除选项卡背景)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-justified.html')">tab 默认样式(宽标题选项卡)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-narrow.html')">tab 默认样式(删除选项卡标题之间的空间)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-pill.html')">tab 默认样式(选项卡标题样式改为气泡状)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-simple.html')">tab 简约样式</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-simple-unborder.html')">tab 简约样式(去除边框)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-red-line.html')">tab 红色下划线样式</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-blue-line.html')">tab 蓝色下划线样式</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-green-line.html')">tab 绿色下划线样式</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-black-line.html')">tab 黑色下划线样式</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-red-block.html')">tab 红色块状样式</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-blue-block.html')">tab 蓝色块状样式</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-green-block.html')">tab 绿色块状样式</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-black-block.html')">tab 黑色块状样式</a></li>
+                                        
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-red-block-bold.html')">tab 红色块状样式(粗下划线)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-blue-block-bold.html')">tab 蓝色块状样式(粗下划线)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-green-block-bold.html')">tab 绿色块状样式(粗下划线)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-black-block-bold.html')">tab 黑色块状样式(粗下划线)</a></li>
+                                        
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-red-block-pill.html')">tab 红色块状样式(气泡状)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-blue-block-pill.html')">tab 蓝色块状样式(气泡状)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-green-block-pill.html')">tab 绿色块状样式(气泡状)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-black-block-pill.html')">tab 黑色块状样式(气泡状)</a></li>
+                                        
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-red-block-pill-unradius.html')">tab 红色块状样式(去除圆角)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-blue-block-pill-unradius.html')">tab 蓝色块状样式(去除圆角)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-green-block-pill-unradius.html')">tab 绿色块状样式(去除圆角)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-black-block-pill-unradius.html')">tab 黑色块状样式(去除圆角)</a></li>
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-blue-line-unborder.html')">tab 蓝色下划线样式(去除边框)</a></li>              
+                                    <li><a href="#" onClick="$.insdep.control('example/tabs/tab-blue-block-pill-unradius-unborder.html')">tab 蓝色下划线样式(去除圆角，去除全部边框)</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>  
+                    <li data-options="state:'closed'">   
+                        <span>Layout</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/layout/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/layout/full.html')">full</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/layout/addremove.html')">Add and Remove Layout</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/layout/complex.html')">Complex Layout</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/layout/nestedlayout.html')">Nested Layout</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/layout/nocollapsible.html')">No collapsible button</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/layout/autoheight.html')">Auto Height</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/layout/collapsetitle.html')">Collapse Title</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/layout/customcollapsetitle.html')">Custom Collapse Title</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/layout/fluid.html')">Fluid Layout</a></span></li>
+                        </ul>
+                    </li> 
+                    <li data-options="state:'closed'">   
+                        <span>DataGrid</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/basic.html')">Basic DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/transform.html')">Transform DataGrid from Table</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/rowborder.html')">Row Border</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/selection.html')">DataGrid Selection</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/checkbox.html')">CheckBox Selection on DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/simpletoolbar.html')">DataGrid with Toolbar</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/complextoolbar.html')">DataGrid Complex Toolbar</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/datagrid-filter.html')">DataGrid Filter Row</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/remotefiltering.html')">Remote Filtering on DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/custompager.html')">Custom DataGrid Pager</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/serverpagination.html')">Server Side Pagination</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/clientpagination.html')">Client Side Pagination</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/sorting.html')">Sorting</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/multisorting.html')">Multiple Sorting</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/columngroup.html')">Column Group</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/aligncolumns.html')">Aligning Columns in DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/frozencolumns.html')">Frozen Columns in DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/formatcolumns.html')">Format DataGrid Columns</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/frozenrows.html')">Frozen Rows in DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/datagrid-group-rows.html')">Group Rows in DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/rowediting.html')">Row Editing in DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/cellediting.html')">Cell Editing in DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/cacheeditor.html')">Cache Editor for DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/rowstyle.html')">DataGrid Row Style</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/cellstyle.html')">DataGrid Cell Style</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/footer.html')">Footer Rows in DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/mergecells.html')">Merge Cells for DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/contextmenu.html')">Context Menu on DataGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/masterdetail.html')">Master Detail</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/subgrid.html')">SubGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/nestedsubgrid.html')">Nested SubGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/largedata.html')">Large Data</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/cardview.html')">Card View</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/bufferview.html')">Buffer View</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/virtualscrollview.html')">Virtual Scroll View</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/virtualscrollview-detailrows.html')">Virtual Scroll View(Detail Rows)</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/datagrid/fluid.html')">Fluid DataGrid</a></span></li>    
+                        </ul>
+                    </li>  
+                    <li data-options="state:'closed'">   
+                        <span>DataList</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/datalist/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datalist/group.html')">Group DataList</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/datalist/multiselect.html')">Multiple Selection DataList</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/datalist/remotedata.html')">Binding to Remote Data</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/datalist/checkbox.html')">Checkbox in DataList</a></span></li>
+                            <li>
+                                <span>更多样式</span>
+                                <ul>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/datalist/datalist.html')">datalist</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/datalist/datalist-arrow.html')">datalist arrow</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/datalist/datalist-badge.html')">datalist badge</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/datalist/datalist-font.html')">datalist font</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/datalist/datalist-group.html')">datalist group</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/datalist/datalist-icon.html')">datalist icon</a></span></li>
+                                </ul>
+                            </li> 
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>PropertyGrid</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/propertygrid/basic.html')">Basic</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/propertygrid/customcolumns.html')">Customize Columns</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/propertygrid/groupformat.html')">Group Format</a></span></li>
+                        </ul>
+                    </li>
+                    <li data-options="state:'closed'">   
+                        <span>Tree</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/basic.html')">Basic Tree</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/animation.html')">Animation Tree</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/checkbox.html')">CheckBox Tree</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/customcheckbox.html')">Custom CheckBox Tree</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/lines.html')">Tree Lines</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/icons.html')">Tree Node Icons</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/actions.html')">Tree Actions</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/contextmenu.html')">Tree Context Menu</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/tree-drag-drop.html')">Drag Drop Tree Nodes</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/editable.html')">Editable Tree</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/tree-async.html')">Async Tree</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/lazyload.html')">Lazy Load Tree Nodes</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/tree/formatting.html')">Formatting Tree Nodes </a></span></li>   
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>TreeGrid</span> 
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/basic.html')">Basic TreeGrid</a></span></li>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/lines.html')">TreeGrid Lines</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/actions.html')">TreeGrid Actions</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/checkbox.html')">Cascade CheckBox</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/customcheckbox.html')">Custom CheckBox</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/treegrid-contextmenu.html')">TreeGrid ContextMenu</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/editable.html')">Editable TreeGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/footer.html')">TreeGrid with Footer</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/treegrid-reports.html')">Reports using TreeGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/treegrid-dynamic.html')">Dynamic Loading in TreeGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/treegrid-server.html')">Server Side Pagination</a></span></li>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/treegrid-client.html')">Client Side Pagination</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/treegrid/fluid.html')">Fluid TreeGrid</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>LinkButton</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/linkbutton/linkbutton.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/linkbutton/linkbutton-plain.html')">Plain LinkButton</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/linkbutton/linkbutton-size.html')">LinkButton Size</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/linkbutton/linkbutton-icon.html')">Icon Align on LinkButton</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/linkbutton/linkbutton-toggle.html')">Toggle Button</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/linkbutton/linkbutton-group.html')">Button Group</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/linkbutton/linkbutton-style.html')">Style LinkButton</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/linkbutton/linkbutton-fluid.html')">Fluid LinkButton</a></span></li>
+                            <li>
+                                <span>更多样式</span>
+                                <ul>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/linkbutton/linkbutton-size2.html')">按钮各类大小及样式</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/linkbutton/linkbutton-fonticon.html')">Fonticon调用方法</a></span></li>
+                                </ul>
+                        </ul>
+                    </li>
+                    <li data-options="state:'closed'">   
+                        <span>Menu</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/menu/menu.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/menu/menu-custom.html')">Custom Menu Item</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/menu/menu-inline.html')">Inline Menu</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/menu/menu-events.html')">Menu Events</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/menu/menu-navigation.html')">Keyboard Navigation</a></span></li>
+                        </ul>
+                    </li> 
+                    <li data-options="state:'closed'">   
+                        <span>MenuButton</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/menubutton/menubutton.html')">Basic</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/menubutton/menubutton-actions.html')">MenuButton Actions</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/menubutton/menubutton-alignment.html')">Menu Alignment</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/menubutton/menubutton-navigation.html')">Keyboard Navigation</a></span></li>
+                            <li>
+                                <span>更多样式</span>
+                                <ul>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/menubutton/menubutton-style.html')">MenuButton Style</a></span></li> 
+                                    <li><span><a href="#" onClick="$.insdep.control('example/menubutton/menubutton-size.html')">各大小的菜单按钮</a></span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>SplitButton</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/splitbutton/splitbutton.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/splitbutton/splitbutton-actions.html')">SplitButton Actions</a></span></li> 
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>SwitchButton</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/switchbutton/switchbutton.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/switchbutton/switchbutton-actions.html')">SwitchButton Actions</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Pagination</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/pagination/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/pagination/custombuttons.html')">Custom Pagination Buttons</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/pagination/attaching.html')">Attaching Other Components</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/pagination/simple.html')">Simplify Pagination</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/pagination/links.html')">Pagination Links</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/pagination/layout.html')">Pagination Layout</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>ProgressBar</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/progressbar/progressbar.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/progressbar/progressbar-fluid.html')">Fluid ProgressBar</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>SearchBox</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/searchbox/searchbox.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/searchbox/searchbox-category.html')">Search Category</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/searchbox/searchbox-fluid.html')">Fluid SearchBox</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Form</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/form/form.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/form/form-load-data.html')">Load Form Data</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/form/form-validate-submit.html')">Validate on Submit</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/form/form-ajax-form.html')">Ajax Form</a></span></li>
+                        </ul>
+                    </li>
+                    <li data-options="state:'closed'">   
+                        <span>TextBox</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/textbox/textbox.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/textbox/textbox-clear-icon.html')">Clear Icon</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/textbox/textbox-custom.html')">Custom TextBox</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/textbox/textbox-with-icons.html')">TextBox with Icons</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/textbox/textbox-with-button.html')">TextBox with Button</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/textbox/textbox-size.html')">TextBox Size</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/textbox/textbox-multiline.html')">Multiline TextBox</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/textbox/textbox-fluid.html')">Fluid TextBox </a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>PasswordBox</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/passwordbox/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/passwordbox/flash.html')">Flash PasswordBox Letters</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/passwordbox/validatepassword.html')">Validate Password</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>FileBox</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/filebox/filebox.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/filebox/filebox-button-align.html')">Button Align</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/filebox/filebox-fileBox.html')">Fluid FileBox</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Combo</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/combo/combo.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combo/combo-animation.html')">Animation</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>ComboBox</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-extra-icons.html')">Extra Icons</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-load-dynamic-data.html')">Load Dynamic ComboBox Data</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-multiple-select.html')">Multiple Select</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-multiline.html')">Multiline ComboBox</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-navigation.html')">Navigation</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-group.html')">Group ComboBox</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-custom-format.html')">Custom Format in ComboBox</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-show-item-icon.html')">Show Item Icon in ComboBox</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-binding-remote-data.html')">Binding to Remote Data</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-remote-jsonp.html')">Remote JSONP</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-actions.html')">ComboBox Actions</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combobox/combobox-fluid.html')">Fluid ComboBox</a></span></li> 
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>ComboGrid</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/combogrid/combogrid.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combogrid/combogrid-initialize-value.html')">Initialize Value for ComboGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combogrid/combogrid-set-value.html')">Set Value for ComboGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combogrid/combogrid-multiple.html')">Multiple ComboGrid</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/combogrid/combogrid-navigation.html')">Navigation</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combogrid/combogrid-actions.html')">ComboGrid Actions</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combogrid/combogrid-filter.html')">Filter ComboGrid</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combogrid/combogrid-fluid.html')">Fluid ComboGrid</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>ComboTree</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/combotree/combotree.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combotree/combotree-initialize-value.html')">Initialize Value for ComboTree</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combotree/combotree-multiple.html')">Multiple ComboTree</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/combotree/combotree-actions.html')">ComboTree Actions</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/combotree/combotree-fluid.html')">Fluid ComboTree</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>NumberBox</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/numberbox/numberbox.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/numberbox/numberbox-format.html')">Format NumberBox</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/numberbox/numberbox-range.html')">Number Range</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/numberbox/numberbox-fluid.html')">Fluid NumberBox</a></span></li>  
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>NumberSpinner</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/numberspinner/numberspinner.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/numberspinner/numberspinner-increment.html')">Increment Number</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/numberspinner/numberspinner-range.html')">Number Range</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/numberspinner/numberspinner-spin-alignment.html')">Number Spin Alignment</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/numberspinner/numberspinner-fluid.html')">Fluid NumberSpinner</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Calendar</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/calendar/calendar.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/calendar/calendar-first-day-week.html')">First Day of Week</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/calendar/calendar-custom.html')">Custom Calendar</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/calendar/calendar-disable.html')">Disable Calendar Date</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/calendar/calendar-week-number.html')">Week Number on Calendar</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/calendar/calendar-fluid.html')">Fluid Calendar</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>DateBox</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/datebox/datebox.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datebox/datebox-format.html')">Date Format</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datebox/datebox-buttons.html')">DateBox Buttons</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datebox/datebox-validate.html')">Validate DateBox</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/datebox/datebox-restrict.html')">Restrict Date</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datebox/datebox-events.html')">DateBox Events</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datebox/datebox-shared.html')">Shared Calendar</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datebox/datebox-clone.html')">Clone DateBox</a></span></li> 
+                            <li><span><a href="#" onClick="$.insdep.control('example/datebox/datebox-fluid.html')">Fluid DateBox</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>DateTimeBox</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/datetimebox/datetimebox.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datetimebox/datetimebox-initialize-value.html')">Initialize Value for DateTime</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datetimebox/datetimebox-display-seconds.html')">Display Seconds</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datetimebox/datetimebox-fluid.html')">Fluid DateTimeBox</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>TimeSpinner</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/timespinner/timespinner.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/timespinner/timespinner-range.html')">Time Range</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/timespinner/timespinner-actions.html')">TimeSpinner Actions</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/timespinner/timespinner-fluid.html')">Fluid TimeSpinner</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>DateTimeSpinner</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/datetimespinner/datetimespinner.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datetimespinner/datetimespinner-format.html')">Format DateTimeSpinner</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datetimespinner/datetimespinner-icon.html')">Clear Icon</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/datetimespinner/datetimespinner-fluid.html')">Fluid DateTimeSpinner</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Slider</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/slider/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/slider/rule.html')">Slider Rule</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/slider/range.html')">Range Slider</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/slider/formattip.html')">Format Tip Information</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/slider/vertical.html')">Vertical Slider</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/slider/nonlinear.html')">Non Linear Slider</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/slider/fluid.html')">Fluid Slider</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>ValidateBox</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/validatebox/validatebox.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/validatebox/validatebox-tooltip.html')">Custom Tooltip</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/validatebox/validatebox-validate.html')">Validate On Blur</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/validatebox/validatebox-error.html')">Error Placement</a></span></li>
+                        </ul>
+                    </li>
+                    <li data-options="state:'closed'">   
+                        <span>Window</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/window/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/window/customtools.html')">Custom Window Tools</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/window/inlinewindow.html')">Inline Window</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/window/modalwindow.html')">Modal Window</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/window/windowlayout.html')">Window Layout</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/window/footer.html')">Window with a Footer</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/window/borderstyle.html')">Window Border Style</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/window/fluid.html')">Fluid Window</a></span></li>
+                            <li>
+                                <span>更多样式</span>
+                                <ul>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/unborder.html')">不显示外边框</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-red.html')">红色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-red1.html')">红色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-red2.html')">红色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-red3.html')">红色主题（不显示边框）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-red4.html')">红色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-red5.html')">红色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-orange.html')">橙色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-orange1.html')">橙色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-orange2.html')">橙色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-orange3.html')">橙色主题（不显示边框）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-orange4.html')">橙色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-orange5.html')">橙色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-green.html')">绿色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-green1.html')">绿色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-green2.html')">绿色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-green3.html')">绿色主题（不显示边框）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-green4.html')">绿色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-green5.html')">绿色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-blue.html')">蓝色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-blue1.html')">蓝色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-blue2.html')">蓝色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-blue3.html')">蓝色主题（不显示边框）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-blue4.html')">蓝色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-blue5.html')">蓝色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-deepblue.html')">深蓝色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-deepblue1.html')">深蓝色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-deepblue2.html')">深蓝色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-deepblue3.html')">深蓝色主题（不显示边框）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-deepblue4.html')">深蓝色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-deepblue5.html')">深蓝色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-black.html')">黑色主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-black1.html')">黑色主题（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-black2.html')">黑色主题（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-black3.html')">黑色主题（不显示边框）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-black4.html')">黑色标题线主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-black5.html')">黑色标题块主题</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-simple.html')">简约风格</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-simple1.html')">简约风格（带左副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-simple2.html')">简约风格（带下副标题）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-simple3.html')">简约风格（不显示边框）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-simple4.html')">标题线主题（不显示标题线）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-simple5.html')">标题线主题（不显示标题背景色）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-simple6.html')">标题块主题（不显示标题线）</a></span></li>
+                                    <li><span><a href="#" onClick="$.insdep.control('example/window/window-simple7.html')">标题块主题（不显示标题背景色）</a></span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Dialog</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/dialog/dialog.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/dialog/dialog-toolbar.html')">Toolbar and Buttons</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/dialog/dialog-complex.html')">Complex Toolbar on Dialog</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/dialog/dialog-fluid.html')">Fluid Dialog</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Messager</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/messager/messager.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/messager/messager-alert.html')">Alert Messager</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/messager/messager-interactive.html')">Interactive Messager</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/messager/messager-position.html')">Message Box Position</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Draggable</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/draggable/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/draggable/constrain.html')">Constrain</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/draggable/snap.html')">Snap</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/draggable/shopping-cart.html')">Shopping Cart</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/draggable/school-timetable.html')">School Timetable</a></span></li>
+                        </ul>
+                    </li> 
+                    <li data-options="state:'closed'">   
+                        <span>Droppable</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/droppable/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/droppable/accept.html')">Accept a Drop</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/droppable/sort.html')">Change Items Order</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Resizable</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/resizable/basic.html')">Basic</a></span></li>
+                        </ul>
+                    </li>   
+                    <li data-options="state:'closed'">   
+                        <span>Tooltip</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/tooltip/tooltip.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tooltip/tooltip-position.html')">Position</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tooltip/tooltip-custom.html')">Custom Content</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tooltip/tooltip-style.html')">Custom Style</a></span></li>  
+                            <li><span><a href="#" onClick="$.insdep.control('example/tooltip/tooltip-ajax.html')">Ajax Tooltip</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tooltip/tooltip-dialog.html')">Tooltip Dialog</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tooltip/tooltip-toolbar.html')">Tooltip as Toolbar</a></span></li>
+                        </ul>
+                    </li> 
+
+                    <li data-options="state:'closed'">   
+                        <span>TagBox</span>
+                        <ul>   
+                            <li><span><a href="#" onClick="$.insdep.control('example/tagbox/basic.html')">Basic</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tagbox/button.html')">TagBox with Button</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tagbox/autocomplete.html')">TagBox with Autocomplete</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tagbox/format.html')">Format TagBox</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tagbox/style.html')">Custom TagBox Style</a></span></li>
+                            <li><span><a href="#" onClick="$.insdep.control('example/tagbox/validate.html')">Validate TagBox</a></span></li>
+                            
+                        </ul>
+                    </li>   
+                </ul>
+            </li> 
+            <li data-options="state:'closed'">   
+                <span>EasyUI组件扩展</span>
+                <ul>
+                    <li><span><a href="#" onClick="$.insdep.control('example/datalist/donwload.html')">Datalist下拉加载 <i class="badge color-important">新</i></a></span></li>
+                </ul>
+            </li>
+            <li data-options="state:'closed'">   
+                <span>EasyUI第三方兼容插件</span>
+                <ul>   
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/iconfont.html')">字体图标 IconFont <i class="badge color-important">新</i></a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/awesome.html')">字体图标 Font Awesome <i class="badge color-important">新</i></a></span></li>
+                    
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/ueditor.html')">富文本编辑器 ueditor</a></span></li>
+
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/KindEditor.html')">富文本编辑器 KindEditor</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/ckeditor.html')">富文本编辑器 ckeditor</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/highcharts.html')">统计图 Highcharts</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/echarts.html')">统计图 echarts</a></span></li>
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/plupload.html')">上传控件 plupload <i class="badge color-important">新</i></a></span></li>
+                    
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/cropper.html')">图片裁剪 cropper</a></span></li>
+
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/bmap.html')">百度地图 BaiduMap Api <i class="badge color-important">新</i></a></span></li>
+
+                    <li><span><a href="#" onClick="$.insdep.control('example/application/colpick.html')">颜色选择 colpick <i class="badge color-important">新</i></a></span></li>
+                </ul>  
+            </li>  
+        </ul>  
+
+        </div>
+        <div data-options="region:'center',border:false" title="预览">
+            <div class="easyui-panel" id="control" data-options="fit:true,border:false" style="padding:20px; background:#fff;">
+            	<div style="font-size:14px;">
+                    <b>JQuery EasyUI 1.5.x of Insdep Theme 1.0.4 正式版</b><br/><br/>
+                    <b><a href="https://www.insdep.com/index.php?m=content&c=index&a=lists&catid=163" target="_blank" style="color: green; font-size: 14px; font-weight: bold;">下一期更新预告，【点击查看】</a></b><br/><br/>
+                    <b>关于 </b><br/>
+                    Insdep theme是基于EasyUI 1.5.x 的一款免费的美化主题包，拥有百度编辑器、cropper、Highcharts、justgage、plupload等各类适应本主题的第三方插件美化补丁。并且各类常用Jquery插件正在美化中。后期会提供更多的主题、组件及第三方插件美化样式。<br/><br/>
+
+                    演示地址：https://www.insdep.com/example/<br/>
+                    下载地址：https://www.insdep.com<br/>
+                    问答地址：https://bbs.insdep.com<br/><br/>
+
+                    项目地址：http://git.oschina.net/weavors/JQuery-EasyUI-1.5.x-Of-Insdep-Theme<br/><br/>
+
+                    <b style="color: blue;">QQ交流群：184075694 （优先发布更新主题及内测包）</b><br/><br/>
+
+                    <b style="color: red;">更新日志：</b>【<a href="https://www.insdep.com/list-107-1.html" target="_blank" style="color: red; font-size: 14px; font-weight: bold;">点击查看</a>】<br/><br/>
+
+                    <b>关于兼容性 </b><br/>
+                    本主题兼容性同步官方，IE最低支持IE9，建议IE10+否则会影响整体性能。<br/><b style="color: blue;">注：</b>我们提供符合本主题的独立Chrome内核桌面客户端，如有需要请联系QQ：228388330<br/><br/>
+                    <b style="color: red;">更新与升级： </b><br/>
+                    <span style="color: red;">本主题支持样式平滑升级及主题样式的平滑切换，每一次更新都可以直接覆盖升级，你可以放心使用。</span><br/><br/>
+                    <b style="color: red;">使用前必读： </b><br/>
+                    
+                    请将你的原默认样式换成本主题的easyui.css即可，另外需要额外加载jquery.insdep-extend.min.js主题包初始化扩展文件。 jquery.easyui.min.js及jquery.min.js都是官方原版，未进行任何修改，可以选择性使用。<br/><br/>
+
+                    
+
+
+                    <b>注意事项：文件与样式说明 请注意文件调用顺序，如下所示： </b><br/>
+                    1、easyui.css <br/>
+                    (已美化的EasyUI组件样式文件)<br/><br/>
+
+                    2、easyui_animation.css <br/>
+                    (easyui的额外增加的动画效果样式，根据需求引入或不引入，此样式不会对easyui产生影响)<br/><br/>
+
+                    3、easyui_plus.css <br/>
+                    (easyui的额外增强样式,内涵所有 insdep_xxx.css 的所有组件样式,根据需求可单独引入insdep_xxx.css或不引入，此样式不会对easyui产生影响)<br/><br/>
+
+                    4、insdep_theme_default.css <br/>
+                    (Insdep默认主题样式文件,注：主题样式指含登录页面、控制台等主要页面的主题，如果你不需要可以不引入该样式)<br/><br/>
+
+                    5、icon.css <br/>
+                    (已美化的EasyUI图标样式文件)(注：我们已支持iconfont图标，如果你不需要官方图标可以不引入，详细操作见下面的“关于iconfont图标”)<br/><br/>
+
+                    6、jquery.min.js <br/>
+                    (原官方提供的jQuery v1.11.3，未进行任何修改)<br/><br/>
+
+                    7、jquery.easyui.min.js <br/>
+                    (原官方提供的jQuery EasyUI 1.5.1，未进行任何修改，注本主题支持全部EasyUI 1.5.x版本)<br/><br/>
+
+                    8、jquery.insdep-extend.min.js <br/>
+                    (EasyUI美化组件初始化文件)<br/><br/>
+
+
+                    <b>常见问题：</b><br/>
+                    本主题包不支持EasyUI 1.5.0以下的jQuery EasyUI版本，假如你的项目中未对EasyUI进行过二次开发，可以考虑尝试覆盖升级。注：升级前请注意备份<br/>
+                 </div>
+             </div>
+             
+             
+             
+             
+             
+        </div>
+    </div>
+
+
+
+
+    <!--第三方插件加载-->
+    <script src="plugin/justgage-1.2.2/raphael-2.1.4.min.js"></script>
+    <script src="plugin/justgage-1.2.2/justgage.js"></script>
+
+
+    <script src="plugin/Highcharts-5.0.0/js/highcharts.js"></script>
+
+
+    <script type="text/javascript" src="plugin/ueditor-1.4.3.3/ueditor.config.js"></script>
+    <script type="text/javascript" src="plugin/ueditor-1.4.3.3/ueditor.all.min.js"></script>
+
+
+    <link href="plugin/cropper-2.3.4/dist/cropper.min.css" rel="stylesheet" type="text/css">
+    <script src="plugin/cropper-2.3.4/dist/cropper.min.js"></script>
+
+
+    <link href="plugin/highlight-9.9.0/src/styles/monokai-sublime.css" rel="stylesheet" type="text/css">
+    <script src="plugin/highlight-9.9.0/highlight.min.js"></script>
+
+    <!--第三方插件加载结束-->
+
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?76386f607e79e997458a326997f1be87";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+
+    <h2>Formatting Tree Nodes</h2>
+    <p>This example shows how to display extra information on nodes.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="padding:5px">
+        <ul class="easyui-tree" data-options="
+                    url:'example/tree/tree_data1.json',
+                    method:'get',
+                    animate:true,
+                    formatter:function(node){
+                        var s = node.text;
+                        if (node.children){
+                            s += '&nbsp;<span style=\'color:blue\'>(' + node.children.length + ')</span>';
+                        }
+                        return s;
+                    }
+                ">
+        </ul>
+    </div>

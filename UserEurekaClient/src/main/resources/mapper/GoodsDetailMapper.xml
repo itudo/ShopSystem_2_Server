@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.GoodsDetailMapper">
+
+	<!-- 添加商品详细信息 -->
+	<insert id="addGoodsDetail" parameterType="GoodsDetail"
+		useGeneratedKeys="true" keyProperty="goodsdetail_id">
+		insert into
+		goodsdetail(
+		goodsdetail_price, goods_count, goods_id)
+		values(
+		#{goodsdetail_price},
+		#{goods_count},
+		#{goods.goods_id})
+	</insert>
+
+	<!-- 更新商品信息 -->
+	<update id="updateGoodsDetail" parameterType="GoodsDetail">
+		update goodsdetail
+		set
+		goodsdetail_price = #{goodsdetail_price},
+		goods_count =
+		#{goods_count},
+		goods_id=#{goods.goods_id}
+		where goodsdetail_id =
+		#{goodsdetail_id}
+	</update>
+	<update id="updateGoodsDetailCount" parameterType="GoodsDetail">
+		update goodsdetail
+		set
+		goods_count =
+		#{goods_count}
+		where goodsdetail_id =
+		#{goodsdetail_id}
+	</update>
+	<!--查询商品对应的所有详情 -->
+	<select id="findGoodsDetailByGoodsId" resultMap="GoodsDetailMap">
+		select *
+		,group_concat(attribute.attribute_name) as
+		attr_name,group_concat(contact.contact_id) as contactStr from
+		goodsDetail
+		left join goods
+		on goods.goods_id=goodsdetail.goods_id
+		left join contact
+		on contact.goodsdetail_id=goodsDetail.goodsdetail_id
+		left join attribute
+		on attribute.attribute_id=contact.attribute_id
+		left join image 
+		on image.goodsdetail_id =goodsDetail.goodsdetail_id
+		where
+		goodsDetail.goods_id =#{goods_id}
+		group by goodsDetail.goodsdetail_id
+
+	</select>
+	<!--通过id查找 -->
+	<select id="findGoodsDetailById" parameterType="Integer"
+		resultMap="GoodsDetailMap">
+		select *
+		,group_concat(attribute.attribute_name) as
+		attr_name,group_concat(contact.contact_id) as contactStr from
+		goodsDetail
+		left join goods
+		on goods.goods_id=goodsdetail.goods_id
+		left join contact
+		on contact.goodsdetail_id=goodsDetail.goodsdetail_id
+		left join attribute
+		on attribute.attribute_id=contact.attribute_id
+		left join image 
+		on image.goodsdetail_id =goodsDetail.goodsdetail_id
+		where goodsdetail.goodsdetail_id=#{goodsdetail_id}
+	</select>
+
+	<!-- 删除 -->
+	<delete id="delGoodsDetail">
+		delete from goodsDetail where
+		goodsdetail_id=#{goodsdetail_id}
+	</delete>
+
+	<resultMap type="GoodsDetail" id="GoodsDetailMap">
+		<id column="goodsdetail_id" property="goodsdetail_id" />
+		<result column="goodsdetail_price" property="goodsdetail_price" />
+		<result column="goods_count" property="goods_count" />
+		<result column="attr_name" property="attr_name" />
+		<result column="contactStr" property="contactStr" />
+		<association property="goods" javaType="Goods">
+			<id property="goods_id" column="goods_id" />
+			<result column="goods_name" property="goods_name" />
+			<result column="goods_sale" property="goods_sale" />
+		</association>
+
+		<collection property="images" ofType="Image" column="image_id">
+			<id property="image_id" column="image_id" />
+			<result column="image_path" property="image_path" />
+		</collection>
+		<collection property="attribute" ofType="Attribute" column="attribute_id">
+			<id property="attribute_id" column="attribute_id" />
+			<result column="attribute_name" property="attribute_name" />
+			<result column="pid" property="pid" />
+			<association property="secondType" javaType="SecondType">
+				<id property="secondtype_id" column="secondtype_id" />
+			</association>
+		</collection>
+	</resultMap>
+
+</mapper>

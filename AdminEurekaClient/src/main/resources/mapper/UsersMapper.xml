@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.UsersMapper">
+
+	<!-- 使用默认mybatis : 二级缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+	<!-- 查询用户是否存在 -->
+	<select id="isUserExists" resultType="Integer" parameterType="Users">
+		select * from users where user_name = #{user_name}
+	</select>
+	<!-- 查询手机号是否存在 -->
+	<select id="isTelExists" resultType="Integer" parameterType="Users">
+		select * from users where user_tel = #{user_tel}
+	</select>
+	<!-- 查询邮箱是否存在 -->
+	<select id="isEmailExists" resultType="Integer" parameterType="Users">
+		select * from users where user_email = #{user_email}
+	</select>
+	<!-- 根据用户名和密码查询用户 -->
+	<select id="getUserByName" resultType="Users" parameterType="Users">
+		select * from users where user_name = #{name} and user_pwd = #{user_pwd}
+	</select>
+	<!-- 根据邮箱和密码查询用户 -->
+	<select id="getUserByEmail" resultType="Users" parameterType="Users">
+		select * from users where user_email = #{name} and user_pwd = #{user_pwd}
+	</select>
+	<!-- 根据手机号和密码查询用户 -->
+	<select id="getUserByTel" resultType="Users" parameterType="Users">
+		select * from users where user_tel = #{name} and user_pwd = #{user_pwd}
+	</select>
+	
+	<!-- 根据id查询用户 -->
+	<select id="getUsersById" resultType="Users" parameterType="Users">
+		select * from users where user_id = #{user_id}
+	</select>
+	
+	<!-- 添加用户，要返回用户的编号 -->
+	<insert id="saveUser" parameterType="Users" useGeneratedKeys="true" keyProperty="id">
+		insert into users(user_name,user_pwd,user_sex,user_date,user_tel,user_email,user_idcard,user_account,user_level) values(#{user_name},#{user_pwd},
+		#{user_sex},now(),#{user_tel},#{user_email},#{user_idcard},0,'普通会员');
+	</insert>
+    <!-- 更新用户信息 -->
+    <update id="updateUser" parameterType="Users">
+        update users set user_pwd=#{user_pwd},user_tel=#{user_tel},user_email=#{user_email}
+        where user_id=#{user_id}
+    </update>
+    <!-- 	分页条件的拼接 -->
+	<sql id="pageSql">
+		<if test="start!=null and pagesize!=null">
+			limit ${start},${pagesize}
+		</if>
+	</sql>
+    <select id="selectAllUser" resultType="Users">
+    	select * from users
+    	<include refid="pageSql"></include>
+    </select>
+    <select id="SelectUsersConditionCount" resultType="int">
+		select count(*) from users
+	</select>
+</mapper>

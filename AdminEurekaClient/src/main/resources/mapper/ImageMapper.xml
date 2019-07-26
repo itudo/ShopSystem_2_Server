@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.ImageMapper">
+
+	<insert id="addImage" parameterType="Image">
+
+		insert into
+		image(image_path,goodsdetail_id)
+		values(#{image_path},#{goodsDetail.goodsdetail_id})
+	</insert>
+
+	<select id="findAllImage" resultMap="ImageMap">
+		select * from image
+	</select>
+	
+	<select id="findImageById" parameterType="Integer" resultMap="ImageMap">
+		select * from image where image_id = #{image_id}
+	</select>
+
+	<select id="findImageByGoodsdetailId" parameterType="map"
+		resultMap="ImageMap">
+		select * from image where goodsdetail_id =
+		#{goodsdetail_id}
+	</select>
+
+	<update id="updateImage" parameterType="Image">
+		update image set
+		image_path=#{image_path} where goodsdetail_id
+		=#{goodsDetail.goodsdetail_id}
+	</update>
+
+	<delete id="delImage">
+		delete from image where image_id =#{image_id}
+	</delete>
+
+	<resultMap type="Image" id="ImageMap">
+		<id property="image_id" column="image_id" />
+		<result property="image_path" column="image_path" />
+		<association property="goodsDetail" javaType="GoodsDetail">
+			<id property="goodsdetail_id" column="goodsdetail_id" />
+		</association>
+	</resultMap>
+
+
+</mapper>

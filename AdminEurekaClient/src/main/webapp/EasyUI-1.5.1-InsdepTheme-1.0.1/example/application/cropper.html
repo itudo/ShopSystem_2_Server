@@ -1,0 +1,151 @@
+
+
+  	<script>
+    	$(function(){
+			
+			var ImgOptions = {
+				aspectRatio: 1 / 1,
+				preview: '.preview-cut',
+				minCanvasWidth:129,//类型：Number，默认值200。容器的最小宽度。
+				minCanvasHeight:129,//类型：Number，默认值100。容器的最小高度。
+				crop: function (e) {
+				  /*
+				  $dataX.val(Math.round(e.x));
+				  $dataY.val(Math.round(e.y));
+				  $dataHeight.val(Math.round(e.height));
+				  $dataWidth.val(Math.round(e.width));
+				  $dataRotate.val(e.rotate);
+				  $dataScaleX.val(e.scaleX);
+				  $dataScaleY.val(e.scaleY);*/
+				}
+			  };
+	  
+	  		var $image = $('#image');
+			var URL = window.URL || window.webkitURL;
+			/*			
+			var blobURL=(($("#portrait-set-window").window("options")).queryParams).blobURL;
+			var $image = $('#image');
+			var URL = window.URL || window.webkitURL;
+			$image.cropper.setDefaults(ImgOptions);
+			$image.one('built.cropper', function () {
+				URL.revokeObjectURL(blobURL);
+			}).cropper('reset').cropper('replace', blobURL);
+			
+			*/
+			
+			
+			  // Keyboard
+			  $(document.body).on('keydown', function (e) {
+			
+				if (!$image.data('cropper') || this.scrollTop > 300) {
+				  return;
+				}
+			
+				switch (e.which) {
+				  case 37:
+					e.preventDefault();
+					$image.cropper('move', -1, 0);
+					break;
+			
+				  case 38:
+					e.preventDefault();
+					$image.cropper('move', 0, -1);
+					break;
+			
+				  case 39:
+					e.preventDefault();
+					$image.cropper('move', 1, 0);
+					break;
+			
+				  case 40:
+					e.preventDefault();
+					$image.cropper('move', 0, 1);
+					break;
+				}
+			
+			  });
+  
+			$image.on({
+				'build.cropper': function (e) {
+				  console.log(e.type);
+				},
+				'built.cropper': function (e) {
+				  console.log(e.type);
+				},
+				'cropstart.cropper': function (e) {
+				  console.log(e.type, e.action);
+				},
+				'cropmove.cropper': function (e) {
+				  console.log(e.type, e.action);
+				},
+				'cropend.cropper': function (e) {
+				  console.log(e.type, e.action);
+				},
+				'crop.cropper': function (e) {
+				  console.log(e.type, e.x, e.y, e.width, e.height, e.rotate, e.scaleX, e.scaleY);
+				},
+				'zoom.cropper': function (e) {
+				  console.log(e.type, e.ratio);
+				}
+			 }).cropper(ImgOptions);
+			 
+			 
+			 
+			
+		});
+		
+		function onfile(){
+			//模拟file控件
+			var ie = navigator.appName == "Microsoft Internet Explorer" ? true : false;  
+			if(ie){  
+				document.getElementById('preview-file').click();  
+			}else{            
+				var mouseobj = document.createEvent("MouseEvents");  
+				mouseobj.initEvent("click", true, true);    
+				document.getElementById('preview-file').dispatchEvent(mouseobj);  
+			}  
+			 var previewFile=$('#preview-file');
+			 previewFile.on("change",function(){
+			 	var files = this.files;
+			 	var file;
+			 	if (files && files.length) {
+					file = files[0];
+					if (/^image\/\w+$/.test(file.type)) {
+						blobURL = URL.createObjectURL(file);
+						
+						$('#image').one('built.cropper', function () {
+							URL.revokeObjectURL(blobURL);
+						}).cropper('reset').cropper('replace', blobURL);
+			
+						previewFile.val('');
+					} else {
+						alert('请选择一个图像文件.');
+					}
+			 	}
+			 });
+		}
+    </script>
+    
+    <form class="form-layout">  
+    <!--
+		<input type="file" class="preview-file" id="preview-file" name="preview-file" accept="image/*">
+		file表单增加accept属性后会导致点击选择按钮后弹出选择界面反应变慢的问题
+    -->
+    <input type="file" class="preview-file" id="preview-file" name="preview-file">
+    <p style="width:800px;"><b>头像设置</b><span>这里是描述信息</span></p>
+    <div class="preview-set-panel" style="width:800px;">
+    	<div class="left">
+        	<img id="image" src=""  onerror="javascript:this.src='themes/insdep/images/portrait172x172.png';" alt="Picture">
+        </div>
+        <div class="right">
+        	<div class="preview-caption">预览</div>
+            <div class="preview-content">
+              <div class="preview-cut preview-129"></div>
+              <div class="preview-cut preview-86"></div>
+              <div class="preview-cut preview-43"></div>
+            </div>
+        </div>
+    </div>
+    </form>
+    <a class="easyui-linkbutton button-danger" href="javascript:void(0)" onClick="onfile()">重新选择图片</a> 
+	

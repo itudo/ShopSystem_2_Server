@@ -1,0 +1,30 @@
+
+    <h2>TimeSpinner Actions</h2>
+    <p>Click the buttons below to perform actions.</p>
+    <div style="margin:20px 0;">
+        <a href="#" class="easyui-linkbutton" onclick="getValue()">GetValue</a>
+        <a href="#" class="easyui-linkbutton" onclick="setValue()">SetValue</a>
+        <a href="#" class="easyui-linkbutton" onclick="disable()">Disable</a>
+        <a href="#" class="easyui-linkbutton" onclick="enable()">Enable</a>
+    </div>
+    <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <label class="label-top">Select Time:</label>
+            <input id="dt" class="easyui-timespinner" value="01:20" style="width:100%;height:26px">
+        </div>
+    </div>
+    <script>
+        function getValue(){
+            var val = $('#dt').timespinner('getValue');
+            alert(val);
+        }
+        function setValue(){
+            $('#dt').timespinner('setValue', '09:45');
+        }
+        function disable(){
+            $('#dt').timespinner('disable');
+        }
+        function enable(){
+            $('#dt').timespinner('enable');
+        }
+    </script>

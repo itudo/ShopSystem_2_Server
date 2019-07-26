@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.ContactMapper">
+
+	<insert id="addContact" parameterType="Contact"
+		useGeneratedKeys="true" keyProperty="contact_id">
+		insert into
+		contact(attribute_id,goodsdetail_id)
+		values(#{attribute.attribute_id},#{goodsdetail.goodsdetail_id});
+	</insert>
+
+	<select id="findAllContact" resultMap="ContactMap">
+		select * from contact
+	</select>
+
+	<select id="findContactById" parameterType="Integer" resultMap="ContactMap">
+		select * from contact where contact_id=#{contact_id}
+	</select>
+
+	<select id="findContactByGoodsDetailId" parameterType="Integer"
+		resultMap="ContactMap">
+		select * from contact where goodsdetail_id
+		=#{goodsdetail_id}
+	</select>
+
+	<select id="findContactByAttributeId" parameterType="Integer"
+		resultMap="ContactMap">
+		select * from contact where attribute_id =#{attribute_id}
+	</select>
+
+	<update id="updateContactByGoodsDetailId" parameterType="Contact">
+		update
+		contact set attribute_id =#{attribute.attribute_id} where
+		goodsdetail_id
+		=#{goodsdetail.goodsdetail_id} and
+		contact_id=#{contact_id}
+	</update>
+
+	<update id="updateContactById" parameterType="Contact">
+		update contact set
+		attribute_id =#{attribute.attribute_id},goodsdetail_id
+		=#{goodsdetail.goodsdetail_id} where contact_id=#{contact_id}
+	</update>
+
+	<resultMap type="Contact" id="ContactMap">
+		<id property="contact_id" column="contact_id" />
+		<association property="attribute" javaType="Attribute">
+			<id property="attribute_id" column="attribute_id" />
+		</association>
+		<association property="goodsdetail" javaType="GoodsDetail">
+			<id property="goodsdetail_id" column="goodsdetail_id" />
+		</association>
+	</resultMap>
+
+
+</mapper>

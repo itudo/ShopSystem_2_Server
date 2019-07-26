@@ -1,0 +1,31 @@
+
+    <h2>Basic ProgressBar</h2>
+    <p>Click the button below to show progress information.</p>
+    <div style="margin:20px 0;">
+        <a href="#" class="easyui-linkbutton" onclick="start()">Start</a>
+    </div>
+    <div id="p" class="easyui-progressbar progressbar-animation progressbar-auto-color" data-options="value:0" data-percent="0" style="width:400px;"></div>
+    <script>
+        var i=0;
+        function start(){
+            /*
+            var value = $('#p').progressbar('getValue');
+            if (value < 100){
+                value += Math.floor(Math.random() * 10);
+                $('#p').progressbar('setValue', value);
+                $('#p').attr("data-percent",value);
+                setTimeout(arguments.callee, 200);
+            }
+            */
+            i = $('#p').progressbar('getValue')==100?0:$('#p').progressbar('getValue');
+            var aa=setInterval(function(){
+                i++;
+                $('#p').progressbar('setValue', i);
+                $('#p').attr("data-percent",i);
+                if(i==100){
+                    i=0;
+                    clearInterval(aa);
+                }
+            },100);
+        };
+    </script>

@@ -1,0 +1,11 @@
+
+	<h2>Format TagBox</h2>
+	<p>This example shows how to format the tagbox values.</p>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-panel" style="padding:30px 60px;">
+		<input class="easyui-tagbox" value="Apple,Orange" label="Add a tag" data-options="
+				tagFormatter: function(value, row){
+					return '[' + value + ']';
+				}
+				">
+	</div>

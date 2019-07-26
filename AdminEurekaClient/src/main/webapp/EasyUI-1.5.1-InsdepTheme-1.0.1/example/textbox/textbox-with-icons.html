@@ -1,0 +1,34 @@
+
+        <div style="margin:10px 0 20px 0">
+        <span>Select Icon Align: </span>
+        <select onchange="$('#tt').textbox({iconAlign:this.value})">
+            <option value="right">Right</option>
+            <option value="left">Left</option>
+        </select>
+    </div>
+    <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <label class="label-top">Icons:</label>
+            <input id="tt" class="easyui-textbox" style="width:100%;height:26px" data-options="
+                    prompt: 'Input something here!',
+                    iconWidth: 22,
+                    icons: [{
+                        iconCls:'icon-add',
+                        handler: function(e){
+                            $(e.data.target).textbox('setValue', 'Something added!');
+                        }
+                    },{
+                        iconCls:'icon-remove',
+                        handler: function(e){
+                            $(e.data.target).textbox('clear');
+                        }
+                    },{
+                        iconCls:'icon-search',
+                        handler: function(e){
+                            var v = $(e.data.target).textbox('getValue');
+                            alert('The inputed value is ' + (v ? v : 'empty'));
+                        }
+                    }]
+                    ">
+        </div>
+    </div>

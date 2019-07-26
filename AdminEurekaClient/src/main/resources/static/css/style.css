@@ -1,0 +1,122 @@
+﻿body { font:12px/22px Verdana, Geneva, sans-serif; background:#fff; color:#333; }
+body,p,ul,ol,li,dl,dt,dd,input,h1,h2,h3,h4,form { padding:0; margin:0; }
+img { border:0; }
+table { border-collapse:collapse; }
+input { font-size:12px; }
+input,label { vertical-align:middle; }
+label { display:inline-block; }
+label input { margin-top:1px; border:0; line-height:20px; padding:0px 10px; overflow:visible; color:#fff; }
+label.ui-green { background:#98c286; border:1px solid #3b6e22; }
+label.ui-green input { background:#68a54c; }
+label.ui-blue { background:#8a9cc2; border:1px solid #29447e; }
+label.ui-blue input { background:#5e77aa; }
+ul { list-style:none; }
+a:link, a:visited, a:hover, a:active { color:#3a52a8; text-decoration:underline; }
+.bold { font-weight:bold; }
+.hide { display:none; }
+.show { display:block; }
+.clear { clear:both; }
+/* clearFix */
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{display:inline-block}
+.clearfix{display:block}
+
+.selector { display:inline-block; line-height:14px; border:1px solid #999; background:url(../images/selector_arrow.gif) right center no-repeat; cursor:pointer; padding-left:4px; padding-top:2px; padding-right:16px; position:relative; }
+.selector ul { position:absolute; width:100%; display:none; background:#fff; right:-1px; top:16px; border:1px solid #999; }
+.selector ul li { line-height:16px; height:16px; overflow:hidden; white-space:nowrap; }
+.selector ul li a { display:block; text-decoration:none; color:#333; padding:0 4px; }
+.selector ul li a:hover { background:#4a649b; color:#fff; }
+
+.wrap { width:960px; margin:0 auto; }
+#header { overflow:hidden; }
+#header #logo { float:left; width:300px; }
+#header .login { line-height:30px; padding-left:250px; text-align:right; }
+#header .search { line-height:25px; padding-left:300px; text-align:right; }
+
+#header .showTime { line-height:25px; padding-left:300px; text-align:right;padding:20px 8px; }
+
+#header .search input.text { border:1px solid #999; font-size:14px; padding:6px 8px; width:500px; }
+#header .search label input { font-size:14px; line-height:25px; height:27px; font-weight:bold; }
+#navbar { clear:both; border-top:1px solid #52638f; }
+#navbar ul.cata-big { background:#d4dff5; font-size:16px; line-height:30px; }
+#navbar ul.cata-big li { float:left; padding:0 5px; }
+#navbar ul.cata-big li.current { font-weight:bold; }
+#navbar dl dt,
+#navbar dl dd { float:left; padding:0 5px; }
+#navbar dl.citylist { background:#e6eefb; }
+#navbar dl.citylist dt { font-weight:bold; }
+#navbar dl.search { padding:5px; border:1px solid #c5c4c0; line-height:18px; }
+#navbar dl.search dt { width:320px; }
+#navbar dl.search label input { line-height:16px; height:19px; padding:0 4px; }
+#navbar dl.search input.text { padding:2px 3px; border:1px solid #1d2a5b; width:160px; }
+#navbar dl.search dd { width:110px; }
+#navbar dl.search dd ul li { margin:3px 0; }
+#navbar dl.search dd ul li ul li { margin:0; }
+#navbar dl.search dd ul li.first { font-weight:bold; position:relative; z-index:2; }
+#navbar dl.search dd ul li.first .selector { float:right; font-weight:normal; }
+#navbar dl.search dd ul li .w { width:88px; }
+
+.house-list { width:100%; }
+.house-list tr.odd td { background:#faf9f6; }
+.house-list td { padding:15px 8px; border-bottom:1px solid #ccc; }
+.house-list td.house-thumb { width:120px; text-align:center; }
+.house-list td.house-thumb span { display:inline-block; border:1px solid #ccc; padding:3px; }
+.house-list td dl dt { font-size:14px; font-weight:bold; }
+.house-list td.house-type { text-align:center; width:120px; }
+.house-list td.house-price { color:#ff3300; width:120px; text-align:center; }
+.house-list td.house-price span { font-size:20px; vertical-align:middle; padding:0 4px; font-family:"Arial Black", Gadget, sans-serif; }
+
+.pager { background:#fdfff2; border-bottom:1px solid #ccc; line-height:30px; }
+.pager ul { float:right; line-height:16px; margin:5px; }
+.pager ul li { float:left; margin:0 2px; padding:0 2px; border:1px solid #ccc; background:#fefefe; }
+.pager ul li.current { color:#ff3300; font-weight:bold; }
+.pager ul li a { text-decoration:none; }
+
+/*Dialog*/
+.dialog { width:680px; margin:50px auto; }
+.dialog h4 { margin:5px 20px; font-size:14px; line-height:30px; border-bottom:1px solid #ccc; }
+.dialog .box { border:1px solid #ccc; }
+.dialog .infos { padding:10px 20px; color:#666; }
+.dialog .buttons { padding:20px 0; text-align:center; }
+.dialog .buttons input { margin:0 5px; border:0; }
+.dialog table { line-height:40px; }
+.dialog table .field { width:120px; text-align:right; }
+.dialog table input.text { width:240px; margin:7px 0; border:1px solid #85a0be; padding:4px 6px; }
+.dialog table textarea { width:240px; height:80px; margin:7px 0; border:1px solid #85a0be; padding:4px 6px; }
+.dialog .msg { padding:50px 0; text-align:center; }
+.dialog table .label { width:120px; text-align:right; }
+.dialog table .error { width:240px; text-align:right; }
+
+#footer { clear:both; margin-top:20px; border-top:1px solid #ccc; line-height:30px; color:#808080; }
+#footer dl dt { float:left; width:400px; }
+#footer dl dd { margin-left:400px; text-align:right; }
+
+#position { line-height:26px; }
+#view .intro { padding:10px 0; border-top:1px solid #d9d9d9; }
+#view .intro .lefter { float:left; width:700px; }
+#view .intro .side { border:1px solid #b0c1c9; float:right; width:200px; padding:10px; background:#f8fbff; }
+#view .intro .side span { color:#c32218; font-weight:bold; }
+#view .intro .lefter h1 { line-height:45px; font-size:24px; text-align:center; color:#c32218; font-family:黑体; }
+#view .intro .lefter .subinfo { text-align:center; color:#a1a1a1; border-bottom:1px dashed #c0c0c0; }
+#view .intro .lefter .houseinfo { padding:20px; line-height:40px; }
+#view .intro .lefter .houseinfo span { color:#c32218; font-size:14px; font-weight:bold; }
+#view .introduction {}
+#view .introduction h2 { font-size:14px; line-height:30px; border-bottom:1px solid #3a749a; }
+#view .introduction h2 span { display:inline-block; color:#d3faff; background:#1f87dc; border:1px solid #3a749a; }
+#view .introduction h2 span strong { display:inline-block; border-top:1px solid #a0f5ff; border-left:1px solid #a0f5ff; border-right:1px solid #a0f5ff; padding:0 12px; }
+#view .introduction .content { padding:20px; line-height:30px; font-size:14px; }
+#view .introduction .content p { text-indent:2em; }
+
+#regLogin { margin:50px auto; }
+#regLogin .dialog { width:500px; margin:0 auto; }
+#regLogin .dialog .box { background:#f0f5f8; font-size:14px; }
+#regLogin dl { line-height:30px; font-size:14px; font-weight:bold; border-bottom:3px solid #09C; }
+#regLogin dl dt,
+#regLogin dl dd { float:left; }
+#regLogin dl dt { padding-left:10px; padding-right:30px; }
+#regLogin dl dd { padding:0 50px; background:#eee; color:#666; border-left:1px solid #fff; }
+#regLogin dl dd.past { background:#09C; color:#fff; }
+#regLogin .dialog .box table { width:600px; margin:0 auto; }
+#regLogin .dialog .box .infos { padding:40px 0; }
+#regLogin .dialog .box .buttons input { background:url(../images/btn_bg.gif); width:125px; height:36px; font-size:14px; font-weight:bold; color:#fff; }
+#regLogin .dialog .verycode { width:130px; }

@@ -1,0 +1,151 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
+<title>青鸟租房 -发布房屋信息</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="js/function.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+	<div id="header" class="wrap">
+		<div id="logo">
+			<img src="images/logo.gif" />
+		</div>
+
+	</div>
+	<div id="regLogin" class="wrap">
+		<div class="dialog">
+			<dl class="clearfix">
+				<dt>新房屋信息发布</dt>
+				<dd class="past">填写房屋信息</dd>
+
+			</dl>
+			<div class="box">
+				<form id="HouseAddForm" name="House_add_action" action="page/House_add.action" method="post">
+					<div class="infos">
+						<table class="field">
+							<tr>
+								<td class="field">标 题：</td>
+								<td><input type="text" name="title" value="" id="title" class="text"/></td>
+							</tr>
+							<tr>
+								<td class="field">户 型：</td>
+								<td><select class="text" name="type.id" id="houseType"></select></td>
+							</tr>
+							<tr>
+								<td class="field">楼层：</td>
+								<td><input type="text" name="floorage" value="" id="floorage" class="text"/></td>
+							</tr>
+							<tr>
+								<td class="field">面积：</td>
+								<td><input type="text" class="text" id="contact" name="contact" /></td>
+							</tr>
+							<tr>
+								<td class="field">价 格：</td>
+								<td><input type="text" name="price" value="" id="price" class="text"/></td>
+							</tr>
+							<tr>
+								<td class="field">位 置：</td>
+								<td>区：<select class="text" name="district.id" id="houseDistrict" onchange="onchangeDistrict(this)"></select> 
+								街：<select class="text" name="street.id" id="houseStreet"></select>
+								</td>
+							</tr>
+							<tr>
+								<td class="field">详细信息：</td>
+								<td><textarea id="description" name="description"></textarea></td>
+							</tr>
+							<tr>
+								<td class="field">房屋图片：</td>
+								<td><input type="file" name="houseimg"></td>
+							</tr>
+						</table>
+						<div class="buttons">
+							<input type="button" id="HouseAdd" value="立即发布"/>
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="wrap">
+		<dl>
+			<dt>青鸟租房 &copy; 2015 源辰信息科技有限公司 湘ICP证1000001号</dt>
+			<dd>关于我们 · 联系方式 · 意见反馈 · 帮助中心</dd>
+		</dl>
+	</div>
+<script type="text/javascript">
+$(function() {
+	$.getJSON("getHouseType.action",function(data) {
+		//alert(data.obj)
+		var obj = data.obj;
+		for(var i = 0; i < obj.length; i++) {
+			$("#houseType").append("<option value='" + obj[i].id + "'>" + obj[i].name + "</option>");  
+		}
+	});
+	$.getJSON("getDistrict.action",function(data) {
+		//alert(data.obj)
+		var obj = data.obj;
+		for(var i = 0; i < obj.length; i++) {
+			$("#houseDistrict").append("<option id='districtid' value='" + obj[i].id + "'>" + obj[i].name + "</option>");  
+		}
+		addStreet(1001);
+	});
+});
+function onchangeDistrict() {
+	$("#houseStreet").html('');
+	var index = $("#houseDistrict").find("option:selected").attr("value");
+	//alert(index)
+	addStreet(index);
+}
+function addStreet(index) {
+	$.getJSON("getStreet.action",{id:index},function(data) {
+		var obj = data.obj;
+		for ( var j = 0; j < obj.length; j++)
+		{
+			$("#houseStreet").append("<option value='" + obj[j].id + "'>" + obj[j].name + "</option>");  
+		}
+	})
+}
+$("#HouseAdd").click(function() {
+	var fm = new FormData();
+	if($("#houseStreet").find("option:selected").attr("value")!=undefined) {
+		//alert($("#description").val())
+		fm.append('street.id', $("#houseStreet").find("option:selected").attr("value"));
+	}
+	//alert( $("#houseStreet").find("option:selected").attr("value"))
+	fm.append('title', $("#title").val());
+    fm.append('type.id', $("#houseType").find("option:selected").attr("value"));
+    fm.append('floorage', $("#floorage").val());
+    fm.append('contact', $("#contact").val());
+    fm.append('price', $("#price").val());
+    fm.append('district.id', $("#houseDistrict").find("option:selected").attr("value"));
+    fm.append('description', $("#description").val());
+    fm.append('img', $('input[type=file]')[0].files[0]);
+	$.ajax({
+		url:"addHouse.action",
+		method:"POST",
+		data:fm,
+		contentType: false, //禁止设置请求类型
+        processData: false, //禁止jquery对DAta数据的处理,默认会处理
+        //禁止的原因是,FormData已经帮我们做了处理
+		dataType:"JSON",
+		success:function(data) {
+			if(data.code===1) {
+				alert("恭喜，房屋发布成功！")
+				document.location='./index.html';
+			} else {
+				alert("sorry,发布失败："+data.errmsg);
+			}
+		}
+	});
+	
+});
+</script>
+</body>
+</html>

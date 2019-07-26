@@ -1,0 +1,14 @@
+
+	<h2>Load Panel Content</h2>
+	<p>Click the refresh button on top right of panel to load content.</p>
+	<div style="margin:20px 0 10px 0;"></div>
+	<div id="p" class="easyui-panel" title="Load Panel Content" style="width:700px;height:200px;padding:10px;"
+			data-options="
+				tools:[{
+					iconCls:'icon-reload',
+					handler:function(){
+						$('#p').panel('refresh', 'panel/_content.html');
+					}
+				}]
+			">
+	</div>

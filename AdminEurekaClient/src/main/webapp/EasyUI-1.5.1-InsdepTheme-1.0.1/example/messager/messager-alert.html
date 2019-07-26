@@ -1,0 +1,35 @@
+
+    <h2>Alert Messager</h2>
+    <p>Click on each button to display different alert message box.</p>
+    <div style="margin:20px 0;">
+        <a href="#" class="easyui-linkbutton" onclick="alert1()">Alert</a>
+        <a href="#" class="easyui-linkbutton" onclick="alert2()">Error</a>
+        <a href="#" class="easyui-linkbutton" onclick="alert3()">Info</a>
+        <a href="#" class="easyui-linkbutton" onclick="alert4()">Question</a>
+        <a href="#" class="easyui-linkbutton" onclick="alert5()">Warning</a>
+        <a href="#" class="easyui-linkbutton" onclick="alert6()">danger</a>
+        <a href="#" class="easyui-linkbutton" onclick="alert7()">success</a>
+    </div>
+    <script>
+        function alert1(){
+            $.messager.alert('My Title','Here is a message!');
+        }
+        function alert2(){
+            $.messager.alert('My Title','Here is a error message!','error');
+        }
+        function alert3(){
+            $.messager.alert('My Title','Here is a info message!','info');
+        }
+        function alert4(){
+            $.messager.alert('My Title','Here is a question message!','question');
+        }
+        function alert5(){
+            $.messager.alert('My Title','Here is a warning message!','warning');
+        }
+		function alert6(){
+            $.messager.alert('My Title','Here is a warning message!','danger');
+        }
+		function alert7(){
+            $.messager.alert('My Title','Here is a warning message!','success');
+        }
+    </script>

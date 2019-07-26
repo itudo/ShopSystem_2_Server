@@ -1,0 +1,22 @@
+
+	<h2>Custom TagBox Style</h2>
+	<p>This example shows how to apply different CSS styles to different tags.</p>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-panel" style="padding:30px 60px;">
+		<input class="easyui-tagbox" value="3" label="Add a tag" data-options="
+				url: 'example/tagbox/tagbox_data1.json',
+				method: 'get',
+				value: '3,4',
+				valueField: 'id',
+				textField: 'text',
+				limitToList: true,
+				prompt: 'Select a Language',
+				tagStyler: function(value){
+					if (value == 3){
+						return 'background:#3ba905;color:#fff';
+					} else if (value == 4){
+						return 'background:#f33425;color:#fff';
+					}
+				}
+				">
+	</div>

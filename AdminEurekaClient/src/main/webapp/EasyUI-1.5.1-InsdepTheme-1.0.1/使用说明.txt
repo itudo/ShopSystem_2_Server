@@ -1,0 +1,54 @@
+JQuery EasyUI 1.5.x of Insdep Theme 1.0.4 正式版
+
+下一期更新预告:https://www.insdep.com/index.php?m=content&c=index&a=lists&catid=163
+
+关于 
+Insdep theme是基于EasyUI 1.5.x 的一款免费的美化主题包，拥有百度编辑器、cropper、Highcharts、justgage、plupload等各类适应本主题的第三方插件美化补丁。并且各类常用Jquery插件正在美化中。后期会提供更多的主题、组件及第三方插件美化样式。
+
+演示地址：https://www.insdep.com/example/
+下载地址：https://www.insdep.com
+问答地址：https://bbs.insdep.com
+
+项目地址：http://git.oschina.net/weavors/JQuery-EasyUI-1.5.x-Of-Insdep-Theme
+
+QQ交流群：184075694 （优先发布更新主题及内测包）
+
+更新日志：https://www.insdep.com/list-107-1.html
+
+关于兼容性 
+本主题兼容性同步官方，IE最低支持IE9，建议IE10+否则会影响整体性能。
+注：我们提供符合本主题的独立Chrome内核桌面客户端，如有需要请联系QQ：228388330
+
+更新与升级： 
+本主题支持样式平滑升级及主题样式的平滑切换，每一次更新都可以直接覆盖升级，你可以放心使用。
+
+使用前必读： 
+请将你的原默认样式换成本主题的easyui.css即可，另外需要额外加载jquery.insdep-extend.min.js主题包初始化扩展文件。 jquery.easyui.min.js及jquery.min.js都是官方原版，未进行任何修改，可以选择性使用。
+
+注意事项：文件与样式说明 请注意文件调用顺序，如下所示： 
+1、easyui.css 
+(已美化的EasyUI组件样式文件)
+
+2、easyui_animation.css 
+(easyui的额外增加的动画效果样式，根据需求引入或不引入，此样式不会对easyui产生影响)
+
+3、easyui_plus.css 
+(easyui的额外增强样式,内涵所有 insdep_xxx.css 的所有组件样式,根据需求可单独引入insdep_xxx.css或不引入，此样式不会对easyui产生影响)
+
+4、insdep_theme_default.css 
+(Insdep默认主题样式文件,注：主题样式指含登录页面、控制台等主要页面的主题，如果你不需要可以不引入该样式)
+
+5、icon.css 
+(已美化的EasyUI图标样式文件)(注：我们已支持iconfont图标，如果你不需要官方图标可以不引入，详细操作见下面的“关于iconfont图标”)
+
+6、jquery.min.js 
+(原官方提供的jQuery v1.11.3，未进行任何修改)
+
+7、jquery.easyui.min.js 
+(原官方提供的jQuery EasyUI 1.5.1，未进行任何修改，注本主题支持全部EasyUI 1.5.x版本)
+
+8、jquery.insdep-extend.min.js 
+(EasyUI美化组件初始化文件)
+
+常见问题：
+本主题包不支持EasyUI 1.5.0以下的jQuery EasyUI版本，假如你的项目中未对EasyUI进行过二次开发，可以考虑尝试覆盖升级。注：升级前请注意备份

@@ -1,0 +1,23 @@
+
+	<div id="master-layout">
+        <div data-options="region:'north',border:false"></div>
+        <div data-options="region:'center',border:false" style="padding:20px;">
+        
+
+            <div id="w" class="easyui-window" title="Modal Window" data-options="modal:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
+            The window content.
+        	</div>
+
+        </div>
+    </div>
+    <script>
+    	$(function(){
+			
+			/*布局部分*/
+			$('#master-layout').layout({
+				fit:true/*布局框架全屏*/
+			});   
+		
+			
+		})
+    </script>

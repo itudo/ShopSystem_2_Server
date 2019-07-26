@@ -1,0 +1,20 @@
+
+    <h2>DateBox Events</h2>
+    <p>Click the calendar image on the right side.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <label class="label-top">Select Date:</label>
+            <input class="easyui-datebox" data-options="onSelect:onSelect" style="width:100%;height:26px">
+        </div>
+        <div style="margin:10px 0">
+            <span>Selected Date: </span>
+            <span id="result"></span>
+        </div>
+    </div>
+    <script>
+        function onSelect(date){
+            $('#result').text(date)
+        }
+    </script>
+

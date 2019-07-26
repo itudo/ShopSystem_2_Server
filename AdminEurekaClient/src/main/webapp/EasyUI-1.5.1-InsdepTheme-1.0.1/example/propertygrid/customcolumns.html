@@ -1,0 +1,18 @@
+
+	<h2>Customize Columns of PropertyGrid</h2>
+	<p>The columns of PropertyGrid can be changed.</p>
+	<div style="margin:20px 0;"></div>
+	<table class="easyui-propertygrid" style="width:300px" data-options="
+				url: 'example/propertygrid/propertygrid_data1.json',
+				method: 'get',
+				showGroup: true,
+				scrollbarSize: 0,
+				columns: mycolumns
+			">
+	</table>
+	<script>
+		var mycolumns = [[
+    		{field:'name',title:'MyName',width:100,sortable:true},
+   		    {field:'value',title:'MyValue',width:100,resizable:false}
+        ]];
+	</script>

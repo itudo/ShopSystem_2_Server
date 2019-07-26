@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.GoodsMapper">
+	<!-- 根据商品id查找对应的商品规格列表 -->
+	<select id="findGoodsDetail" parameterType="Map" resultMap="GoodsMap">
+		select a.goods_id,a.goods_name,a.goods_desc,
+		a.goods_pubtime,a.goods_isnew ,a.goods_sale,a.thirdtype_id,
+		b.goodsdetail_price,b.goods_count
+		from goods a left join goodsdetail b
+		on a.goods_id = b.goods_id where a.goods_id=#{goods_id}
+
+	</select>
+
+
+	<!-- 添加商品信息 -->
+	<insert id="addGoods" useGeneratedKeys="true">
+		insert into goods(
+		goods_name, goods_desc, goods_pubtime,
+		goods_isnew,
+		goods_sale,
+		thirdtype_id)
+		values( #{goods_name},
+		#{goods_desc},
+		now(),
+		#{goods_isnew},
+		#{goods_sale},
+		#{thirdType.thirdtype_id})
+	</insert>
+
+	<!-- 更新商品信息 -->
+	<update id="updateGoods" parameterType="Goods">
+		update goods set
+		goods_name = #{goods_name},
+		goods_desc = #{goods_desc},
+		goods_isnew=#{goods_isnew},
+		goods_sale=#{goods_sale} 
+		where goods_id = #{goods_id}
+	</update>
+
+	<select id="findAllGoods" resultMap="GoodsMap">
+		select * from
+		goods
+	</select>
+
+	<sql id="conditionSql">
+		<where>
+			<if test="goods_name != null and goods_name !='' ">
+				goods_name like '%${goods_name}%'
+			</if>
+
+			<if test="goods_desc != null and goods_desc !='' ">
+				goods_desc like '%${goods_desc}%'
+			</if>
+			<if test="startPubtime != null  and  startPubtime != '' ">
+				and goods_pubtime Between #{startPubtime} And
+				now()
+			</if>
+
+			<if test="goods_isnew != null   ">
+				and goods_isnew = #{goods_isnew}
+			</if>
+
+			<if test="goods_sale != null  and  goods_sale != '' ">
+				and goods_sale &gt;= #{goods_sale}
+			</if>
+
+			<if test="goods_id != null">
+				and goods.goods_id = #{goods_id}
+			</if>
+
+			<if test="thirdtype_id != null    ">
+				and goods.thirdtype_id = #{thirdtype_id}
+				
+			</if>
+
+		</where>
+	</sql>
+	<!-- 排序条件的拼接 -->
+	<sql id="orderSql">
+		<if test="orderby != null and orderby!= '' ">
+			order by ${orderby}
+			<if test="orderway != null  and orderway != null">
+				${orderway}
+			</if>
+		</if>
+	</sql>
+
+
+	<!-- 分页条件的拼接 -->
+	<sql id="pageSql">
+		<if test="start != null   ">
+			limit ${start} , ${pageSize}
+		</if>
+	</sql>
+	<select id="findGoodsByCondition" parameterType="map"
+		resultMap="GoodsMap">
+		select *
+		,group_concat(attribute.attribute_name) as
+		attr_name,group_concat(contact.contact_id) as contactStr from
+		goodsDetail
+		left join goods
+		on goods.goods_id = goodsdetail.goods_id
+		left join contact
+		on contact.goodsdetail_id=goodsDetail.goodsdetail_id
+		left join attribute
+		on attribute.attribute_id=contact.attribute_id
+		left join image 
+		on image.goodsdetail_id =goodsDetail.goodsdetail_id
+		left join thirdtype
+		on thirdtype.thirdtype_id = goods.thirdtype_id
+		
+		<include refid="conditionSql"></include>
+		group by goodsDetail.goodsdetail_id
+	</select>
+
+
+	<!-- 带查询条件 统计查询 的数量 -->
+	<select id="findGoodsConditionCount" parameterType="java.util.Map"
+		resultType="java.lang.Integer">
+		select count(*) from goods
+		<include refid="conditionSql"></include>
+	</select>
+	<!-- 根据id删除单条信息 -->
+	<delete id="delSingleGoods" parameterType="Integer">
+		delete from goods
+		where goods_id = #{goods_id}
+	</delete>
+
+	<!-- 根据ids删除多条信息 -->
+	<delete id="delManyGoods" parameterType="List">
+		delete from goods where goods_id in
+		<foreach collection="list" open="(" close=")" separator=","
+			item="goods">
+			#{goods.goods_id}
+		</foreach>
+	</delete>
+
+	<resultMap type="Goods" id="GoodsMap">
+		<result column="goods_id" property="goods_id" />
+		<result column="goods_name" property="goods_name" />
+		<result column="goods_desc" property="goods_desc" />
+		<result column="goods_pubtime" property="goods_pubtime" />
+		<result column="goods_isnew" property="goods_isnew" />
+		<result column="goods_sale" property="goods_sale" />
+
+		<association property="thirdType" javaType="ThirdType">
+			<id property="thirdtype_id" column="thirdtype_id" />
+			<result property="thirdtype_name" column="thirdtype_name" />
+		</association>
+
+		<collection  property="goodsDetails" ofType="GoodsDetail">
+			<id property="goodsdetail_id" column="goodsdetail_id" />
+			<result column="goodsdetail_price" property="goodsdetail_price" />
+			<result column="goods_count" property="goods_count" />
+			<collection property="images" ofType="Image" column="image_id">
+				<id property="image_id" column="image_id" />
+				<result column="image_path" property="image_path" />
+			</collection>
+		</collection>
+		
+	</resultMap>
+
+</mapper>

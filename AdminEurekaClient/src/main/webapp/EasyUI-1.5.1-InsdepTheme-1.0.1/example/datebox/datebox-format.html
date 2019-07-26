@@ -1,0 +1,35 @@
+
+   <h2>Date Format</h2>
+    <p>Different date formats are applied to different DateBox components.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <label class="label-top">Defaut Format:</label>
+            <input class="easyui-datebox" style="width:100%;height:26px">
+        </div>
+        <div style="margin-bottom:20px">
+            <label class="label-top">Customized Format:</label>
+            <input class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" style="width:100%;height:26px">
+        </div>
+    </div>
+    <script type="text/javascript">
+        function myformatter(date){
+            var y = date.getFullYear();
+            var m = date.getMonth()+1;
+            var d = date.getDate();
+            return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+        }
+        function myparser(s){
+            if (!s) return new Date();
+            var ss = (s.split('-'));
+            var y = parseInt(ss[0],10);
+            var m = parseInt(ss[1],10);
+            var d = parseInt(ss[2],10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+                return new Date(y,m-1,d);
+            } else {
+                return new Date();
+            }
+        }
+    </script>
+

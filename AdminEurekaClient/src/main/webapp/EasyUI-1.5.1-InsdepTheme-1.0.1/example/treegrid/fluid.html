@@ -1,0 +1,19 @@
+
+	<h2>Fluid TreeGrid</h2>
+	<p>This example shows how to assign percentage width to a column in TreeGrid.</p>
+	<div style="margin:20px 0;"></div>
+	<table title="Fluid Browser" class="easyui-treegrid" style="width:700px;height:250px"
+			data-options="
+				url: 'example/treegrid/treegrid_data1.json',
+				method: 'get',
+				idField: 'id',
+				treeField: 'name'
+			">
+		<thead>
+			<tr>
+				<th data-options="field:'name'" width="50%">Name(50%)</th>
+				<th data-options="field:'size'" width="20%" align="right">Size(20%)</th>
+				<th data-options="field:'date'" width="30%">Modified Date(30%)</th>
+			</tr>
+		</thead>
+	</table>

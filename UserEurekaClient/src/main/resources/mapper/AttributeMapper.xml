@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.AttributeMapper">
+	<!-- 添加属性 -->
+	<insert id="addAttrinbute" parameterType="Attribute"
+		useGeneratedKeys="true" keyProperty="attribute_id">
+
+		insert into
+		attribute(attribute_name,pid,secondtype_id)
+		values(#{attribute_name},#{pid},#{secondType.secondtype_id})
+	</insert>
+
+	<!-- 查找所有属性 -->
+	<select id="getAllAttribute" resultMap="AttrMap">
+		select * from attribute
+		where pid = 0
+	</select>
+
+	<!-- 通过id查找属性 -->
+	<select id="getAttributeById" parameterType="Integer" resultMap="AttrMap">
+		select * from attribute where attribute_id = #{attribute_id}
+	</select>
+
+	<!-- 通过pid查找属性值 -->
+	<select id="getAttributeValueByPid" parameterType="Integer"
+		resultMap="AttrMap">
+		select a.attribute_id,a.attribute_name,b.attribute_id as
+		attrvalue_id,b.attribute_name as
+		attribute_value from attribute a
+		join
+		attribute b
+		on a.attribute_id =
+		b.pid
+		where b.pid = #{attribute_id}
+	</select>
+
+	<select id="getAttributeBySecondType" parameterType="Integer" resultMap="AttrMap">
+		select a.attribute_id,a.attribute_name,b.attribute_id as
+		attrvalue_id,
+		b.attribute_name as
+		attrvalue_value from attribute a join
+		attribute b
+		on a.attribute_id =
+		b.pid where a.secondtype_id
+		=#{secondtype_id}
+	</select>
+
+	<!-- 更新 -->
+	<update id="updateAttribute" parameterType="Attribute">
+		update attribute set
+		attribute_name
+		=#{attribute_name},pid=#{pid},secondtype_id=#{secondtype_id} where
+		attribute_id=#{attribute_id}
+	</update>
+
+	<!--删除 -->
+	<delete id="delAttribute" parameterType="Integer">
+		delete from attribute
+		where attribute_id=#{attribute_id}
+	</delete>
+
+	<resultMap type="Attribute" id="AttrMap">
+		<id property="attribute_id" column="attribute_id" />
+		<result column="attribute_name" property="attribute_name" />
+		<result column="pid" property="pid" />
+
+		<association property="secondType" javaType="SecondType">
+			<id property="secondtype_id" column="secondtype_id" />
+		</association>
+
+		<collection property="attrvalue" ofType="Attrvalue">
+			<id property="attrvalue_id" column="attrvalue_id" />
+			<result property="attrvalue_value" column="attrvalue_value" />
+		</collection>
+	</resultMap>
+</mapper>

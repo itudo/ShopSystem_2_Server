@@ -1,0 +1,65 @@
+    <h2>DataGrid Virtual Scroll View Demo</h2>
+    <div class="demo-info" style="margin-bottom:10px">
+        <div class="demo-tip icon-tip">&nbsp;</div>
+        <div>Drag the vertical scroll and release it to navigate to the desired page.</div>
+    </div>
+    
+    <div style="margin-bottom:10px">
+        <select onchange="load(this.value)">
+            <option value="remote">Load Remote Data</option>
+            <option value="local">Load Local Data</option>
+        </select>
+    </div>
+    
+    <table id="tt" title="DataGrid - VirtualScrollView" style="width:700px;height:300px" data-options="
+                view:scrollview,rownumbers:true,singleSelect:true,
+                url:'datagrid27_getdata.php',
+                autoRowHeight:false,pageSize:50">
+        <thead>
+            <tr>
+                <th field="inv" width="80">Inv No</th>
+                <th field="date" width="100">Date</th>
+                <th field="name" width="80">Name</th>
+                <th field="amount" width="80" align="right">Amount</th>
+                <th field="price" width="80" align="right">Price</th>
+                <th field="cost" width="100" align="right">Cost</th>
+                <th field="note" width="110">Note</th>
+            </tr>
+        </thead>
+    </table>
+    <script type="text/javascript">
+        $(function(){
+            $('#tt').datagrid();
+        });
+        function loadLocal(){
+            var rows = [];
+            for(var i=1; i<=8000; i++){
+                var amount = Math.floor(Math.random()*1000);
+                var price = Math.floor(Math.random()*1000);
+                rows.push({
+                    inv: 'Inv No '+i,
+                    date: $.fn.datebox.defaults.formatter(new Date()),
+                    name: 'Name '+i,
+                    amount: amount,
+                    price: price,
+                    cost: amount*price,
+                    note: 'Note '+i
+                });
+            }
+            $('#tt').datagrid('loadData', rows);
+        }
+        function load(mode){
+            if (mode == 'local'){
+                loadLocal();
+            } else {
+                $('#tt').datagrid({
+                    url:'datagrid27_getdata.php'
+                });
+            }
+        }
+    </script>
+    <style type="text/css">
+        .datagrid-header-rownumber,.datagrid-cell-rownumber{
+            width:40px;
+        }
+    </style>

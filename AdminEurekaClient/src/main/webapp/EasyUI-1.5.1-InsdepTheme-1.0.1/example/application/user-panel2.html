@@ -1,0 +1,59 @@
+<div class="theme-user-info-panel">
+                	<div class="left">
+                    	<img src="themes/insdep/images/portrait86x86.png" width="86" height="86">
+                    </div>
+                    <div class="right">
+                    	
+                          <style>
+						  .gauge {
+							width: 130px;
+							height: 130px;
+						  }
+						  </style>
+
+                    	<ul>
+                        	<li><div id="gg1" class="gauge"  data-value="250"></div><span>我的数据</span></li>
+                            <li><div id="gg2" class="gauge"  data-value="2025"></div><span>我的数据</span></li>
+                        	<li><div id="gg3" class="gauge"  data-value="115"></div><span>我的数据</span></li>
+                            <li><div id="gg4" class="gauge"  data-value="687"></div><span>我的数据</span></li>
+                        </ul>
+                        <script>
+						$(function(){
+								var dflt = {
+								  min: 0,
+								  max: 2800,
+								  donut: true,
+								  gaugeWidthScale: 0.6,
+								  counter: true,
+								  hideInnerShadow: true
+								}
+								var gg1 = new JustGage({
+								  id: 'gg1',
+								  value: 125,
+								  defaults: dflt
+								});
+							
+								var gg2 = new JustGage({
+								  id: 'gg2',
+								  defaults: dflt
+								});
+								var gg3 = new JustGage({
+								  id: 'gg3',
+								  defaults: dflt
+								});
+								var gg4 = new JustGage({
+								  id: 'gg4',
+								  defaults: dflt
+								});
+						});
+						</script>
+                    </div>
+                    <div class="center">
+                        <h1>匿名<span class="badge color-warning">未认证</span></h1>
+                        <h2>管理员</h2>
+                        <ul>
+                            <li>未读消息 <a class="badge color-important">0</a></li>
+                        </ul>
+                    </div>
+                	
+                </div>

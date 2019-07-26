@@ -1,0 +1,14 @@
+
+	<h2>Format Tip Information</h2>
+	<p>This sample shows how to format tip information.</p>
+	<div style="margin:20px 0 50px 0;"></div>
+	<input class="easyui-slider" value="12" style="width:300px" data-options="
+			showTip: true,
+			rule: [0,'|',25,'|',50,'|',75,'|',100],
+			tipFormatter: function(value){
+				return value+'px';
+			},
+			onChange: function(value){
+				$('#ff').css('font-size', value);
+			}">
+	<div id="ff" style="margin-top:50px;font-size:12px">jQuery EasyUI</div>

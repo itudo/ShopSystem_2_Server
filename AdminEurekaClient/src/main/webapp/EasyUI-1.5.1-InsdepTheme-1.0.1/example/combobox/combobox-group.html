@@ -1,0 +1,17 @@
+
+    <div style="margin:20px 0">
+        <input type="checkbox" onchange="$('#cc').combobox({groupPosition:$(this).is(':checked')?'sticky':'static'})">
+        <span>Sticky Group</span>
+    </div>
+    <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <label class="label-top">Browser:</label>
+            <input id="cc" class="easyui-combobox" name="browser" style="width:100%;height:26px;" data-options="
+                    url: 'example/combobox/combobox_data2.json',
+                    method: 'get',
+                    valueField:'value',
+                    textField:'text',
+                    groupField:'group'
+                    ">
+        </div>
+    </div>

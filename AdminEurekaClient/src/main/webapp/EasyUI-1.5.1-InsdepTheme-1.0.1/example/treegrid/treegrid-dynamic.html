@@ -1,0 +1,30 @@
+
+    <h2>Dynamic Loading in TreeGrid</h2>
+    <div class="demo-info" style="margin-bottom:10px">
+        <div class="demo-tip icon-tip">&nbsp;</div>
+        <div>Click the node expand button to load its child nodes.</div>
+    </div>
+    
+    <table title="Products" class="easyui-treegrid" style="width:700px;height:300px"
+            url="example/treegrid/treegrid3_getdata.php"
+            rownumbers="true"
+            cls='treegrid'
+            idField="id" treeField="name">
+        <thead>
+            <tr>
+                <th field="name" width="250">Name</th>
+                <th field="quantity" width="100" align="right">Quantity</th>
+                <th field="price" width="150" align="right" formatter="formatDollar">Price</th>
+                <th field="total" width="150" align="right" formatter="formatDollar">Total</th>
+            </tr>
+        </thead>
+    </table>
+    <script>
+        function formatDollar(value){
+            if (value){
+                return '$'+value;
+            } else {
+                return '';
+            }
+        }
+    </script>

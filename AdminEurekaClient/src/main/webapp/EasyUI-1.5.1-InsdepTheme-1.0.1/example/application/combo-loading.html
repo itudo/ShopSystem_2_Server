@@ -1,0 +1,57 @@
+有下列按钮多图标：<br/>
+<input class="easyui-combobox combo-loading test" name="browser" data-options="width:300,icons:[{
+                        iconCls:'icon-add'
+                    },{
+                        iconCls:'icon-cut'
+                    }],"><br/><br/>
+有下列按钮无图标：<br/>
+<input class="easyui-combobox combo-loading test" name="browser" data-options="width:300"><br/><br/>
+隐藏下拉按钮：<br/>
+<input class="easyui-combobox combo-loading test" name="browser" data-options="width:300,hasDownArrow:false">
+<br/>
+<br/>
+<a id="offtest" href="#" class="easyui-linkbutton button-red">隐藏loading</a>
+<a id="ontest" href="#" class="easyui-linkbutton button-green">打开loading</a>
+
+<script type="text/javascript">
+    $('#ontest').bind('click', function(){    
+        $(".test").addClass("combo-loading");   
+    });
+    $('#offtest').bind('click', function(){    
+        $(".test").removeClass("combo-loading");
+    });
+</script>
+<br/>
+<br/>
+<br/>
+<h3>AJAX加载演示(5秒后输出结果)</h3>
+<br/>
+<br/>
+<input id="test" class="combo-loading" name="browser"><br/><br/>
+
+<script type="text/javascript">
+  $("#test").combobox({
+      width:300,
+      valueField:'value',
+      textField:'text',
+      groupField:'group',
+      loader:function(param,success,error){
+        $.ajax({
+            url:"example/application/combo-loading.php",
+            data:{},//传入的参数
+            type:"POST",
+            dataType:"json",
+            beforeSend:function(){//发送请求前
+                $("#test").addClass("combo-loading"); 
+            },
+            complete:function(){//请求完成后
+                $("#test").removeClass("combo-loading");
+            },
+            success: function(data){
+                success(data);
+            }
+        });
+      }
+                    
+  });
+</script>

@@ -1,0 +1,28 @@
+
+    <div style="margin:20px 0">
+        <span>Animation Type:</span>
+        <select onchange="changeAnimation(this.value)">
+            <option>slide</option>
+            <option>fade</option>
+            <option>show</option>
+        </select>
+    </div>
+    <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <label class="label-top">Animation:</label>
+            <input id="cc" style="width:100%;height:26px">
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $('#cc').combo();
+            changeAnimation('slide');
+        });
+        function changeAnimation(atype){
+            $('#cc').combo('panel').panel({
+                openAnimation:atype,
+                closeAnimation:(atype=='show'?'hide':atype)
+            });
+        }
+    </script>
+

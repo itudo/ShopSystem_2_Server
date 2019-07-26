@@ -1,0 +1,13 @@
+
+    <span>Select Button Align:</span>
+    <select onchange="changeAlign(this.value)">
+        <option value="left">Left</option>
+        <option value="right" selected>Right</option>
+    </select>
+    <div style="margin:20px 0;"></div>
+    <input id="fb" class="easyui-filebox" style="width:400px" data-options="prompt:'Choose a file...'">
+    <script type="text/javascript">
+        function changeAlign(align){
+            $('#fb').filebox({buttonAlign:align});
+        }
+    </script>

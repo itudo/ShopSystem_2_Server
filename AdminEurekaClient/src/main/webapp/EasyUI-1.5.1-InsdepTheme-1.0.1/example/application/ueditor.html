@@ -1,0 +1,19 @@
+						<script id="ueditor" name="content" type="text/plain" style="width:720px;height:180px;">
+						<!--<?php if ($modify){ echo htmlspecialchars_decode($data['announcement_content']);}?>-->
+                        </script>
+                        
+                        <!-- 实例化编辑器 -->
+                        <script type="text/javascript">
+							var ue = UE.getEditor('ueditor', {
+								UEDITOR_HOME_URL:"https://www.insdep.com/example/plugin/ueditor-1.4.3.3/", 
+								serverUrl:"https://www.insdep.com/example/plugin/ueditor-1.4.3.3/php/controller.php", 
+								/*toolbars: [
+									['source','|','undo','redo','|','bold','italic','underline','strikethrough','|','superscript','subscript','|','forecolor','backcolor','|','removeformat','|',
+            'insertorderedlist','insertunorderedlist'],['paragraph','|','fontfamily','fontsize' ,'|','justifyleft','justifycenter','justifyright','justifyjustify','|',
+            'link','unlink','|','emotion','simpleupload','insertimage','insertvideo','insertframe','|','map',
+            '|','horizontal']
+								],*/
+								autoHeightEnabled: true,
+								autoFloatEnabled: true
+							});
+                        </script>

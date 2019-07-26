@@ -1,0 +1,19 @@
+
+    <h2>Ajax Tooltip</h2>
+    <p>The tooltip content can be loaded via AJAX.</p>
+    <div style="margin:20px 0;"></div>
+    <a href="#" class="easyui-tooltip" data-options="
+            content: $('<div></div>'),
+            onShow: function(){
+                $(this).tooltip('arrow').css('left', 20);
+                $(this).tooltip('tip').css('left', $(this).offset().left);
+            },
+            onUpdate: function(cc){
+                cc.panel({
+                    width: 500,
+                    height: 'auto',
+                    border: false,
+                    href: '_content.html'
+                });
+            }
+        ">Hove me</a> to display tooltip content via AJAX.

@@ -1,0 +1,94 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.FirstTypeMapper">
+
+	<select id="findTypeBySid"  resultMap="TypeMap" parameterType="Map">
+		select firsttype.firsttype_id,firsttype.firsttype_name,secondtype.secondtype_id,secondtype.secondtype_name,thirdtype.thirdtype_id,thirdtype.thirdtype_name
+		from firsttype
+		left join secondtype
+		on secondtype.firsttype_id=firsttype.firsttype_id
+		left join  thirdtype
+		on thirdtype.secondtype_id=secondtype.secondtype_id 
+	</select>
+    <resultMap type="FirstType" id="TypeMap">
+      <id property="firsttype_id" column="firsttype_id"/>
+      <result property="firsttype_name" column="firsttype_name"/>
+      <collection property="secondType" ofType="SecondType">
+         <id property="secondtype_id" column="secondtype_id"/>
+         <result property="secondtype_name" column="secondtype_name"/>
+         <collection property="thirdType" ofType="ThirdType">
+            <id property="thirdtype_id" column="thirdtype_id"/>
+            <result property="thirdtype_name" column="thirdtype_name"/>
+         </collection>
+      </collection>
+    </resultMap>
+    
+    <resultMap type="FirstType" id="TypeMap2">
+      <id property="firsttype_id" column="firsttype_id"/>
+      <result property="firsttype_name" column="firsttype_name"/>
+      <collection property="firstType" ofType="FirstType">
+         <id property="firsttype_id" column="secondtype_id"/>
+         <result property="firsttype_name" column="secondtype_name"/>
+         <collection property="firstType" ofType="FirstType">
+            <id property="firsttype_id" column="thirdtype_id"/>
+            <result property="firsttype_name" column="thirdtype_name"/>
+         </collection>
+      </collection>
+    </resultMap>
+    
+    
+    
+    
+    
+    <!-- 查找所有一级表 -->
+	<select id="findAllFirstType" resultMap="FirstTypeMap">
+		select *
+		from firsttype
+
+	</select>
+	<!--根据id查找一级表 -->
+	<select id="findFirstTypeById" parameterType="Integer"
+		resultMap="FirstTypeMap">
+		select * from firsttype where firsttype_id = #{firsttype_id}
+	</select>
+	<!--添加一级表 -->
+	<insert id="addFirstType" parameterType="FirstType"
+		useGeneratedKeys="true">
+		insert into firstType(firsttype_name)
+		values(#{firsttype_name})
+	</insert>
+	
+	<!-- 根据一级表id查找所有所有对应的二级表列表 -->
+	<select id="findSecondTypeByFirstTypeId" parameterType="Integer"
+		resultMap="FirstTypeMap">
+		select
+		b.firsttype_id,b.firsttype_name,a.secondtype_id,secondtype_name
+		from
+		firsttype b left join secondType a
+		on a.firsttype_id = b.firsttype_id
+		where
+		b.firsttype_id = #{firsttype_id}
+	</select>
+	<!-- 根据id删除一级表-->
+	<delete id="delFirstType" parameterType="Integer">
+		delete   from firstType
+		where firsttype_id = #{firsttype_id}
+	</delete>
+
+	<!-- 根据id更新一级表信息 -->
+	<update id="updateFirstType" parameterType="FirstType">
+		update firstType set
+		firsttype_name = #{firsttype_name}
+	</update>
+
+	<resultMap type="FirstType" id="FirstTypeMap">
+		<id property="firsttype_id" column="firsttype_id" />
+		<result property="firsttype_name" column="firsttype_name" />
+		<collection property="secondType" ofType="SecondType">
+			<id property="secondtype_id" column="secondtype_id" />
+			<result property="secondtype_name" column="secondtype_name" />
+		</collection>
+	</resultMap>
+    
+</mapper>

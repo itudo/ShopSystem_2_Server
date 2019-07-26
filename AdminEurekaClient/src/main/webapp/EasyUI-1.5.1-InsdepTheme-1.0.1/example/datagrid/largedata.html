@@ -1,0 +1,43 @@
+    <h2>Display large amount of data in DataGrid without pagination</h2>
+    <div class="demo-info" style="margin-bottom:10px">
+        <div class="demo-tip icon-tip">&nbsp;</div>
+        <div>Enter record count and press load button.</div>
+    </div>
+    
+    <div style="margin-bottom:10px">
+        <span>Record Count:</span>
+        <input id="total" class="easyui-numberbox" value="100" min="0" max="2000">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-reload" onclick="loaddata()">Load</a>
+    </div>
+    <table id="tt" style="width:700px;height:250px"
+            url="datagrid25_getdata.php" singleSelect="true"
+            title="Load Large Data" iconCls="icon-ok" autoRowHeight="false">
+        <thead>
+            <tr>
+                <th field="inv" width="80">Inv No</th>
+                <th field="date" width="120">Date</th>
+                <th field="name" width="80">Name</th>
+                <th field="amount" width="80" align="right">Amount</th>
+                <th field="price" width="80" align="right">Price</th>
+                <th field="cost" width="100" align="right">Cost</th>
+                <th field="note" width="130">Note</th>
+            </tr>
+        </thead>
+    </table>
+    <script type="text/javascript">
+        $(function(){
+            $('#tt').datagrid({
+                onLoadSuccess:function(data){
+                    $.messager.show({
+                        title:'Info',
+                        msg:'Load '+data.total+' records successfully'
+                    });
+                }
+            });
+        });
+        function loaddata(){
+            $('#tt').datagrid('load',{
+                total: $('#total').numberbox('getValue')
+            });
+        }
+    </script>

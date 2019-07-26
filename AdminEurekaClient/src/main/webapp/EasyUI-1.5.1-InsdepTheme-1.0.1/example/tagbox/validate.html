@@ -1,0 +1,21 @@
+
+	<h2>Validate TagBox</h2>
+	<p>This example shows how to validate the tagbox values.</p>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-panel" style="padding:30px 60px;">
+		<input class="easyui-tagbox" value="Apple,Orange" label="Add a tag" data-options="
+				validType: ['length[3,10]','uniquetag']
+				">
+	</div>
+	<script type="text/javascript">
+		$.extend($.fn.validatebox.defaults.rules, {
+			uniquetag: {
+				validator: function(value, param){
+					var tb = $(this).closest('.tagbox').prev();
+					var values = tb.tagbox('getValues');
+					return $.inArray(value, values)==-1;
+				},
+				message: 'The tag value already exists.'
+			}
+		})
+	</script>

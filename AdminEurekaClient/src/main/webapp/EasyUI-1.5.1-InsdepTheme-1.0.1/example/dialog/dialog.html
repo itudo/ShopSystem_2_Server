@@ -1,0 +1,11 @@
+
+    <h2>Basic Dialog</h2>
+    <p>Click below button to open or close dialog.</p>
+    <p>需要添加  data-options="cls:'dialog'"</p>
+    <div style="margin:20px 0;">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">Open</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('close')">Close</a>
+    </div>
+    <div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save',cls:'dialog'" style="width:400px;height:200px;padding:10px">
+        The dialog content.
+    </div>

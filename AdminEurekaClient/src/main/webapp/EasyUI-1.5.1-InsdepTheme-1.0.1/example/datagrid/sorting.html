@@ -1,0 +1,22 @@
+    <h2>Add sorting to DataGrid</h2>
+    <div class="demo-info" style="margin-bottom:10px">
+        <div class="demo-tip icon-tip">&nbsp;</div>
+        <div>Click on column header to sort but the 'Attribute' and 'Status' column can't be sorted because their sortable feature is not assigned yet.</div>
+    </div>
+    
+    <table id="tt" class="easyui-datagrid" style="width:700px;height:250px"
+            url="datagrid8_getdata.php"
+            title="Load Data" iconCls="icon-save"
+            sortName="itemid" sortOrder="asc"
+            rownumbers="true" pagination="true">
+        <thead>
+            <tr>
+                <th field="itemid" width="80" sortable="true">Item ID</th>
+                <th field="productid" width="100" sortable="true">Product ID</th>
+                <th field="listprice" width="80" align="right" sortable="true">List Price</th>
+                <th field="unitcost" width="80" align="right" sortable="true">Unit Cost</th>
+                <th field="attr1" width="220">Attribute</th>
+                <th field="status" width="60" align="center">Stauts</th>
+            </tr>
+        </thead>
+    </table>

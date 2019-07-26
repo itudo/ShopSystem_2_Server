@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.UsersMapper">
+
+	<!-- 使用默认mybatis : 二级缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+	<!-- 查询用户是否存在 -->
+	<select id="isUserExists" resultType="Integer" parameterType="Users">
+		select * from users where user_name = #{user_name}
+	</select>
+	<!-- 查询手机号是否存在 -->
+	<select id="isTelExists" resultType="Integer" parameterType="Users">
+		select * from users where user_tel = #{user_tel}
+	</select>
+	<!-- 查询邮箱是否存在 -->
+	<select id="isEmailExists" resultType="Integer" parameterType="Users">
+		select * from users where user_email = #{user_email}
+	</select>
+	<!-- 查询账号是否存在 -->
+	<select id="isNameExists" resultType="Integer" parameterType="Users">
+		select * from users where user_email = #{name} or user_tel = #{name} or user_name = #{name}
+	</select>
+	
+	<!-- 查询账号 -->
+	<select id="isUser" resultType="Users" parameterType="Users">
+		select * from users where user_email = #{name} or user_tel = #{name} or user_name = #{name}
+	</select>
+	<!-- 根据用户名和密码查询用户 -->
+	<select id="getUserByName" resultType="Users" parameterType="Users">
+		select count(1) from users where user_name = #{name} and user_pwd = #{user_pwd}
+	</select>
+	<!-- 根据邮箱和密码查询用户 -->
+	<select id="getUserByEmail" resultType="Users" parameterType="Users">
+		select * from users where user_email = #{name} and user_pwd = #{user_pwd}
+	</select>
+	<!-- 根据手机号和密码查询用户 -->
+	<select id="getUserByTel" resultType="Users" parameterType="Users">
+		select * from users where user_tel = #{name} and user_pwd = #{user_pwd}
+	</select>
+	
+	<!-- 根据id查询用户 -->
+	<select id="getUsersById" resultType="Users" parameterType="Users">
+		select * from users where user_id = #{user_id}
+	</select>
+	
+	<!-- 添加用户，要返回用户的编号 -->
+	<insert id="saveUser" parameterType="Users">
+		insert into users(user_id,user_name,user_pwd,user_sex,user_date,user_tel,user_email,user_idcard,user_account,user_level) values(#{user_id},#{user_name},#{user_pwd},
+		#{user_sex},now(),#{user_tel},#{user_email},#{user_idcard},0,'普通会员');
+	</insert>
+    <!-- 更新用户信息 -->
+    <update id="updateUser" parameterType="Users">
+        update users set user_tel=#{user_tel},user_email=#{user_email},user_name=#{user_name},user_idcard=#{user_idcard},user_sex=#{user_sex}
+        where user_id=#{user_id}
+    </update>
+    
+    <!-- 更新密码 -->
+    <update id="updatepwd" parameterType="Users">
+        update users set user_pwd=#{user_pwd} where user_id=#{user_id}
+    </update>
+    
+    <!-- 更新登录时间 -->
+    <update id="updateLoginDate" parameterType="Users">
+        update users set user_date=now() where user_id=#{user_id}
+    </update>
+    
+    <!-- 上传头像 -->
+    <update id="updateHead" parameterType="Users">
+        update users set user_head=#{user_head} where user_id=#{user_id}
+    </update>
+</mapper>

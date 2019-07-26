@@ -1,0 +1,40 @@
+
+    <h2>Filter ComboGrid Demo</h2>
+    <div class="demo-info" style="margin-bottom:10px">
+        <div class="demo-tip icon-tip">&nbsp;</div>
+        <div>Type in the input box to filter ComboGrid data.</div>
+    </div>
+    
+    <div style="margin-bottom:10px">
+        <span>Filter Mode:</span>
+        <input name="mode" type="radio" value="local">local
+        <input name="mode" type="radio" value="remote" checked="true">remote
+    </div>
+    <input id="cg" style="width:150px"></input>
+    <script type="text/javascript">
+        $(function(){
+            $('#cg').combogrid({
+                panelWidth:500,
+                url: 'form5_getdata.php',
+                idField:'itemid',
+                textField:'productid',
+                mode:'remote',
+                fitColumns:true,
+                columns:[[
+                    {field:'itemid',title:'Item ID',width:60},
+                    {field:'productid',title:'Product ID',width:80},
+                    {field:'listprice',title:'List Price',align:'right',width:60},
+                    {field:'unitcost',title:'Unit Cost',align:'right',width:60},
+                    {field:'attr1',title:'Attribute',width:150},
+                    {field:'status',title:'Stauts',align:'center',width:60}
+                ]]
+            });
+            $("input[name='mode']").change(function(){
+                var mode = $(this).val();
+                $('#cg').combogrid({
+                    mode: mode
+                });
+            });
+        });
+    </script>
+

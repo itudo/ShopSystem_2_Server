@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.CartMapper">
+
+	<!-- 使用默认mybatis : 二级缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+	
+	<!-- 根据cartdetail_id 删除订单详情-->
+	<delete id="delCartDetail" parameterType="String">
+		delete from cartdetail where cartdetail_id = #{cartdetail_id}
+	</delete>
+	<!-- 清空购物车-->
+	<delete id="delMutilCartDetail" parameterType="String">
+		delete from cartdetail where cart_id = #{cart_id}
+	</delete>
+	
+	<!-- 更新购物车详情中商品数量-->
+	<update id="updateCartDetailcount" parameterType="map" >
+	      update cartdetail set goods_count=#{goods_count}
+	      where cartdetail_id=#{goodsdetail_id}
+	</update>
+	
+	
+	 <!-- 更新购物车详情状态-->
+	<update id="updateCartDetailstatusByList" parameterType="list" >
+	      update cartdetail set cartdetail_status=0
+	      where cartdetail_id in 
+	      <foreach collection="list" open="(" close=")" separator="," item="cartDetail" >
+			  #{cartDetail.cartdetail_id}
+		</foreach>
+	</update>
+	
+	
+	<!-- 添加购物车详情 -->	
+	<insert id="saveCartDetail" parameterType="map" useGeneratedKeys="true" keyProperty="cartdetail_id">
+		insert into cartdetail(goods_count,goods_money,cartdetail_status,goodsdetail_id,cart_id) 
+		values(#{goods_count},#{goodsdetail_price},1,#{goodsdetail_id},#{cart_id})
+	</insert>
+	<!-- 添加购物车 -->
+	<insert id="saveCart" parameterType="Users">
+		insert into cart values(#{user_id},#{user_id})
+	</insert>
+
+	<select id="selectCartByUserId" parameterType="Users" resultType="int">
+		select cart_id from cart where user_id = #{user_id}
+	</select>
+	
+	<select id="selectGoodsDetailCount" parameterType="map" resultType="int">
+		select goodsdetail.goods_count from cartdetail
+		left join goodsdetail
+		on goodsdetail.goodsdetail_id=cartdetail.goodsdetail_id
+		where cartdetail.cartdetail_id=#{goodsdetail_id}
+	</select>
+	
+	<select id="selectCartDetailListById" parameterType="map" resultMap="CartDetailMap">
+		select *,group_concat(attribute.attribute_name) as attr_name
+			from cart 
+			left join cartdetail 
+			on cart.cart_id=cartdetail.cart_id
+			left join goodsdetail
+			on cartdetail.goodsdetail_id = goodsdetail.goodsdetail_id
+			left join contact
+			on contact.goodsdetail_id=goodsDetail.goodsdetail_id
+			left join attribute
+			on attribute.attribute_id=contact.attribute_id
+			left join goods
+			on goodsdetail.goods_id = goods.goods_id
+			left join image
+			on image.goodsdetail_id = goodsdetail.goodsdetail_id
+			
+			where cartdetail_id in
+		<foreach collection="cartDetailList" open="(" close=")" separator="," item="cartDetail" >
+			  #{cartDetail}
+		</foreach>
+		group by goodsDetail.goodsdetail_id
+	</select>
+	
+	<select id="selectCartDetailById" parameterType="map" resultType="CartDetail">
+		select * from cartdetail
+		where cartdetail.goodsdetail_id=#{goodsdetail_id} and cartdetail_status = 1
+	</select>
+
+		<!-- 各种查询条件的拼接 --> 
+	 <sql id="conditionSql">
+			from cartdetail 
+			left join cart
+			on cart.cart_id=cartdetail.cart_id
+			left join goodsdetail
+			on cartdetail.goodsdetail_id = goodsdetail.goodsdetail_id
+			left join contact
+			on contact.goodsdetail_id=goodsDetail.goodsdetail_id
+			left join attribute
+			on attribute.attribute_id=contact.attribute_id
+			left join goods
+			on goodsdetail.goods_id = goods.goods_id
+			left join image
+			on image.goodsdetail_id = goodsdetail.goodsdetail_id
+	    <where>
+			<if test="cart_id!=null  and cart_id!=''">
+				cart.cart_id = #{cart_id}
+			</if>
+			<if test="user_id!=null  and user_id!=''">
+				user_id = #{user_id}
+			</if>
+			and	cartdetail.cartdetail_status = 1
+	    </where>
+	 </sql> 
+	
+	 <!-- 带查询条件，分页条件，排序条件的查询 -->
+	<select id="findCart" parameterType="map" resultMap="CartDetailMap">
+		select *
+		<include refid="conditionSql"/>
+	</select> 
+	
+	 <!-- 带查询条件统计查询 -->
+	 <select id="findCartdetailConditionCount" parameterType="map" resultType="int">
+	    select count(1) 
+	    <include refid="conditionSql"/>
+	 </select>
+
+
+	
+	<resultMap type="CartDetail" id="CartDetailMap">
+			<id property="cartdetail_id" column="cartdetail_id" />
+			<result property="goods_count" column="goods_count" />
+			<result property="goods_money" column="goods_money" />
+			<result property="cartdetail_status" column="cartdetail_status" />
+			<association property="goodsDetail" javaType="GoodsDetail">
+					<id property="goodsdetail_id" column="goodsdetail_id"/>
+					<result property="goodsdetail_price" column="goodsdetail_price"/>
+					<result property="goods_count" column="goods_count"/>
+					<result property="attr_name" column="attr_name"/>
+						<association property="goods" javaType="Goods">
+							<id property="goods_id" column="goods_id"/>
+							<result property="goods_name" column="goods_name"/>
+							<result property="goods_desc" column="goods_desc"/>
+							<result property="goods_pubtime" column="goods_pubtime"/>
+							<result property="goods_isnew" column="goods_isnew"/>
+							<result property="goods_sale" column="goods_sale"/>
+							<association property="thirdType" javaType="ThirdType">
+								<id property="thirdtype_id" column="thirdtype_id"/>
+								<result property="thirdtype_name" column="thirdtype_name"/>
+							</association>
+						</association>
+						<collection property="images" ofType="Image">
+							<id property="image_id" column="image_id"/>
+							<result property="image_path" column="image_path"/>
+						</collection>
+						<collection property="attribute" ofType="Attribute" column="attribute_id">
+							<id property="attribute_id" column="attribute_id" />
+							<result column="attribute_name" property="attribute_name" />
+							<result column="pid" property="pid" />
+							<association property="secondType" javaType="SecondType">
+								<id property="secondtype_id" column="secondtype_id" />
+							</association>
+						</collection>
+				</association>
+				<association property="cart" javaType="Cart">
+					<id property="cart_id" column="cart_id" />
+						<association property="user" javaType="Users">
+							<id property="user_id" column="user_id" />
+						</association>
+				</association>
+	</resultMap>
+</mapper>

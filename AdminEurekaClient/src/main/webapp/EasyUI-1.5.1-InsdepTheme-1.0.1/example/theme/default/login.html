@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<title>演示 - jQuery EasyUI 1.5.x Of Insdep theme examples</title>
+<!--
+    JQuery EasyUI 1.5.x of Insdep Theme 1.0.0
+    演示地址：https://www.insdep.com/example/
+    下载地址：https://www.insdep.com
+    问答地址：https://bbs.insdep.com
+
+    项目地址：http://git.oschina.net/weavors/JQuery-EasyUI-1.5.x-Of-Insdep-Theme
+
+    QQ交流群：184075694 （优先发布更新主题及内测包）
+-->
+<!--
+    注意样式表优先级
+    主题样式必须在easyui组件样式后。
+-->
+
+<link href="../../../themes/insdep/easyui.css" rel="stylesheet" type="text/css">
+
+
+<!--
+    themes/insdep/easyui_animation.css
+    Insdep对easyui的额外增加的动画效果样式，根据需求引入或不引入，此样式不会对easyui产生影响
+-->
+<link href="../../../themes/insdep/easyui_animation.css" rel="stylesheet" type="text/css">
+
+<!--
+    themes/insdep/easyui_plus.css
+    Insdep对easyui的额外增强样式,内涵所有 insdep_xxx.css 的所有组件样式
+    根据需求可单独引入insdep_xxx.css或不引入，此样式不会对easyui产生影响
+-->
+<link href="../../../themes/insdep/easyui_plus.css" rel="stylesheet" type="text/css">
+
+<!--
+    themes/insdep/insdep_theme_default.css
+    Insdep官方默认主题样式,更新需要自行引入，此样式不会对easyui产生影响
+-->
+<link href="../../../themes/insdep/insdep_theme_default.css" rel="stylesheet" type="text/css">
+
+<!--
+    themes/insdep/icon.css
+    美化过的easyui官方icons样式，根据需要自行引入
+-->
+<link href="../../../themes/insdep/icon.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../../../jquery.min.js"></script>
+<script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../../themes/insdep/jquery.insdep-extend.min.js"></script>
+</head>
+
+<body class="theme-login-layout">
+		
+
+		<div class="theme-login-header"></div>
+		<div id="theme-login-form">
+			<div class="QRcode"></div>
+			<div class="QRcode-layout hide">
+				<div class="QRcode-layout-close"></div>
+				<div class="QRcode-header">
+					<b>APP扫码登录</b>
+					<span>请使用最新版APP进行扫码登录</span>
+				</div>
+				<div class="QRcode-content"><img src="images/QRcode-demo.png" width="215"></div>
+			</div>
+
+            <form id="form" class="theme-login-form" method="post">  
+            <dl>
+                <dt><img src="images/logo_110.png"></dt>
+
+                        <dd>
+                        	<select id="theme-login-select" class="theme-login-select" style="width:100%;">   
+                            	<option value="0">请选择用户类型</option>  
+                                <option value="1">教师</option>   
+                                <option value="2">学生</option>  
+                            </select>  
+                        </dd>
+                        <dd>
+                        	<hgroup class="group-mail">
+                        	<input id="mail" name="mail" />
+                            <label>@</label>
+                            <select id="mail-add" style="width:120px;">   
+                            	<option value="0">insdep.com</option>  
+                                <option value="1">weavors.com</option>   
+                                <option value="2">educate.net.cn</option>  
+                            </select>
+                            </hgroup>
+                        </dd>
+                        <dd><input id="username" name="username" class="theme-login-text"  style="width:100%;"/></dd>
+                        <dd><input id="password" name="password" class="theme-login-text"  style="width:100%;"/></dd>
+                        <dd><input id="code" name="code" class="theme-login-text"  style="width:100%;"/></dd>
+                        <dd><input id="smscode" name="smscode" class="theme-login-text" style="width:300px;"></dd>
+                        <dd><a class="submit" href="index.html">Sign in</a><a class="easyui-linkbutton button" href="index.html">forgotten ?</a></dd>
+
+            </dl>
+            </form>
+        </div>
+
+    	<div class="theme-login-footer">
+        	<dl>
+        		<dt><a>免费加入</a> | <a id="ok">产品优势</a> | <a>系列产品</a> | <a>应用下载</a> | <a>帮助手册</a> | <a>联系我们</a></dt>
+        		<dd>&copy 2007 - <script>var year = new Date();document.write(year.getFullYear());</script> 宁波市维沃信息科技有限公司.版权所有</dd>
+        	</dl>
+        </div>
+
+    <script>
+
+    	$(function(){		
+
+    		$(".QRcode").on("click",function(){
+    			$(".QRcode-layout").removeClass("hide");
+
+    		});
+    		$(".QRcode-layout-close").on("click",function(){
+    			$(".QRcode-layout").addClass("hide");
+    		});
+
+			$.extend($.fn.validatebox.defaults.tipOptions, {
+				onShow: function() {
+					$(this).tooltip("tip").css({backgroundColor:"#ff7e00", border: "none",color: "#fff"});
+					
+				}
+			})
+
+			/*布局部分*/
+			$('#theme-login-layout').layout({
+				fit:true/*布局框架全屏*/
+			});   
+			
+			/*表单定义*/
+			$('#theme-login-select').combobox({    
+				/*通过ajax取数据
+				url:'userclass.json',    
+				valueField:'id',
+				textField:'text'
+				*/
+				editable:false /*不允许用户通过输入选择*/
+				
+			});  
+			var selects=$('#theme-login-select').combobox('panel');
+			selects.panel({cls:"theme-login-select-panel"}); 
+			
+			$('#mail').textbox({    
+				prompt:'mail',
+				required:true,
+				missingMessage:"请输入邮箱名称"
+			});
+			
+			$('#mail-add').combobox({    
+				/*通过ajax取数据
+				url:'userclass.json',    
+				valueField:'id',
+				textField:'text'
+				*/
+				editable:false /*不允许用户通过输入选择*/
+				
+			});  
+			var mailselect=$('#mail-add').combobox('panel');
+			mailselect.panel({cls:"theme-mail-select-panel"}); 
+			
+			$('#username').textbox({    
+				prompt:'Account or number',
+				required:true,
+				missingMessage:"请输入用户名"
+			});
+			$('#password').textbox({    
+				type:"password",
+				prompt:'Password',
+				required:true,
+				missingMessage:"请输入密码"
+			});
+			$('#code').textbox({    
+				prompt:'Code',
+				required:true,
+				missingMessage:"请输入验证码"
+			})
+			
+			$('#smscode').textbox({    
+				required:true,
+				missingMessage:"请输入短信验证码",
+				buttonText:'获取短信验证码',
+				prompt:'短信验证码'
+			});
+			
+			$('.submit').linkbutton({    
+				
+			}); 
+			
+			/*验证码tooltip*/
+			
+
+
+
+			$('#form').form({
+				url:"http://www.insdep.com/",
+				onSubmit:function(){
+					var res=$(this).form('enableValidation').form('validate');
+					res?$.messager.progress():"";
+					return res;
+				},
+				success: function(data){ 
+				    $.messager.progress('close');
+					try 
+					{ 
+						var data = eval('(' + data + ')');
+						if (!data.success){    
+							$.messager.alert('提示',data.message,'error',function(){
+								$('#username,#password').textbox('clear');
+							});
+						}else{
+							window.location.reload();
+						}
+					} 
+					catch (e) 
+					{ 
+						$.insdep.error(data);
+					} 
+
+				}
+			});	
+			
+			/*验证码tooltip*/
+			
+		})
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.dao.mapper.ThirdTypeMapper">
+
+	<!-- 查找所有的三级表 -->
+	<select id="findAllThirdType" resultMap="ThirdTypeMap">
+		select * from ThirdType
+	</select>
+
+	<!-- 根据id查找 -->
+	<select id="findThirdTypeById" parameterType="Integer" resultMap="ThirdTypeMap">
+		select * from ThirdType where
+		thirdtype_id=#{thirdtype_id}
+	</select>
+	
+	
+		<!-- 根据二级id查找 -->
+	<select id="findThirdTypeBySecondTypeId" parameterType="Integer" resultMap="ThirdTypeMap">
+		select * from ThirdType where
+		secondtype_id=#{secondtype_id}
+	</select>
+
+	<!-- 添加三级表 -->
+	<insert id="addThirdtype" parameterType="ThirdType">
+		insert into
+		ThirdType(thirdtype_name,secondtype_id)
+		values(#{thirdtype_name},#{secondType.secondtype_id})
+	</insert>
+
+	<!-- 删除三级表 -->
+	<delete id="delThirdType" parameterType="Integer">
+		delete  from ThirdType
+		where thirdtype_id=#{thirdtype_id}
+	</delete>
+
+	<!-- 更新三级表 -->
+	<update id="updateThirdType" parameterType="ThirdType">
+		update ThirdType set
+		thirdtype_name =#{thirdtype_name},secondtype_id=
+		#{secondType.secondtype_id} where
+		thirdtype_id=#{thirdtype_id}
+	</update>
+
+
+	<resultMap type="ThirdType" id="ThirdTypeMap">
+		<id property="thirdtype_id" column="thirdtype_id" />
+		<result property="thirdtype_name" column="thirdtype_name" />
+		<association property="secondType" javaType="SecondType">
+			<id property="secondtype_id" column="secondtype_id" />
+			<result property="secondtype_name" column="secondtype_name" />
+		</association>
+	</resultMap>
+</mapper>

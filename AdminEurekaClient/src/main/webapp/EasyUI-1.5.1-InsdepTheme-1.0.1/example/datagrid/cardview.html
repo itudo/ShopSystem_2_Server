@@ -1,0 +1,52 @@
+    <h2>DataGrid Card View Demo</h2>
+    <div class="demo-info" style="margin-bottom:10px">
+        <div class="demo-tip icon-tip">&nbsp;</div>
+        <div>The datagrid row can be showed as card.</div>
+    </div>
+    
+    <table id="tt" style="width:700px;height:350px"
+            title="DataGrid - CardView" singleSelect="true" fitColumns="true" remoteSort="false"
+            url="datagrid8_getdata.php" pagination="true" sortOrder="desc" sortName="itemid">
+        <thead>
+            <tr>
+                <th field="itemid" width="80" sortable="true">Item ID</th>
+                <th field="listprice" width="120" sortable="true">List Price</th>
+                <th field="unitcost" width="80" sortable="true">Unit Cost</th>
+                <th field="attr1" width="250" sortable="true">Attribute</th>
+                <th field="status" width="60" sortable="true">Status</th>
+            </tr>
+        </thead>
+    </table>    
+    <script>
+        var cardview = $.extend({}, $.fn.datagrid.defaults.view, {
+            renderRow: function(target, fields, frozen, rowIndex, rowData){
+                var cc = [];
+                cc.push('<td colspan=' + fields.length + ' style="padding:10px 5px;border:0;">');
+                if (!frozen && rowData.itemid){
+                    var aa = rowData.itemid.split('-');
+                    var img = 'shirt' + aa[1] + '.gif';
+                    cc.push('<img src="images/' + img + '" style="width:150px;float:left">');
+                    cc.push('<div style="float:left;margin-left:20px;">');
+                    for(var i=0; i<fields.length; i++){
+                        var copts = $(target).datagrid('getColumnOption', fields[i]);
+                        cc.push('<p><span class="c-label">' + copts.title + ':</span> ' + rowData[fields[i]] + '</p>');
+                    }
+                    cc.push('</div>');
+                }
+                cc.push('</td>');
+                return cc.join('');
+            }
+        });
+        $(function(){
+            $('#tt').datagrid({
+                view: cardview
+            });
+        });
+    </script>
+    <style type="text/css">
+        .c-label{
+            display:inline-block;
+            width:100px;
+            font-weight:bold;
+        }
+    </style>

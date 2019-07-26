@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<link rel="shortcut icon" href="favicon.ico" />
+<title>jQuery EasyUI 1.4.5 - Insdep of theme</title>
+<!--
+	注意样式表优先级
+    主题样式必须在easyui组件样式后。
+-->
+<script type="text/javascript" src="../jquery.min.js"></script>
+<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+<link href="../themes/insdep/easyui.css" rel="stylesheet" type="text/css">
+<link href="../themes/insdep/master.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+	<div id="login-layout">
+        <div data-options="region:'north',border:false"></div>
+        <div data-options="region:'south',border:false">
+        	Copyright &copy; 2007 - <script>var year = new Date();document.write(year.getFullYear());</script> Weavors Inc. All Rights Reserved
+        </div>
+        <div data-options="region:'center',border:false">
+        	<div id="login-form-layout">
+            	<div class="left">
+                	<dl>
+                    	<dt>Welcome Insdep of theme</dt>
+                        <dd>Learn about jQuery EasyUI 1.4.5 Insdep of theme, view documentation, get the latest information, and more. Connect with weavors website, or get technical support .
+</dd>
+                    </dl>
+                </div>
+                <div class="right">
+                	<form id="form" method="post">  
+                	<dl>
+                    	<dt>Sign in</dt>
+                        <dd>
+                        	<select id="userclass" name="userclass">   
+                            	<option value="0">请选择用户类型</option>  
+                                <option value="1">教师</option>   
+                                <option value="2">学生</option>  
+                            </select>  
+                        </dd>
+                        <dd><input id="mail" name="mail" /></dd>
+                        <dd><input id="username" name="username" /></dd>
+                        <dd><input id="password" name="password"/></dd>
+                        <dd><input id="code" name="code"/></dd>
+                        <dd><a id="submit" href="javascript:void(0)">Sign in</a></dd>
+                    </dl>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    	$(function(){
+
+			
+			/*布局部分*/
+			$('#login-layout').layout({
+				fit:true/*布局框架全屏*/
+			});   
+			
+			/*表单定义*/
+			$('#userclass').combobox({    
+				/*通过ajax取数据
+				url:'userclass.json',    
+				valueField:'id',
+				textField:'text'
+				*/
+				editable:false /*不允许用户通过输入选择*/
+				
+			});  
+			$('#username').textbox({    
+				prompt:'Account or number',
+			});
+			$('#password').textbox({    
+				type:"password",
+				prompt:'Password',
+			});
+			$('#code').textbox({    
+				prompt:'Code',
+			})
+			
+			$('#submit').linkbutton({    
+				
+			}); 
+			
+			/*验证码tooltip*/
+			
+		})
+    </script>
+</body>
+</html>
