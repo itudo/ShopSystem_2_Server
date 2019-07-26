@@ -1,4 +1,4 @@
-项目名称：淘宝贝电子商务平台(2018.8-2018.9)
+项目名称：淘宝贝电子商务平台服务器(2018.8-2018.9)
 (1)开发技术：Spring，SpringMVC，Mybatis，Spring Cloud相关组件，
             Mysql，Redis，Jquery，Ajax，Jstl/EL，lombok
 (2)项目描述：基于SpringCloud微服务架构的B2C电子商务系统，主要分为用户服务
